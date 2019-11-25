@@ -64,4 +64,4 @@ java -jar ./target/restful-api-metric-analyzer-cli-0.0.7-jar-with-dependencies.j
 
 
 # How to Contribute
-Description of the architecture, components and metrics can be found in our devguide
+Description of the architecture, components and metrics can be found in our [devguide](docs/devguide.md)

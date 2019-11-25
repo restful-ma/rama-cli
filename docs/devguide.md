@@ -55,7 +55,7 @@ java -jar ./target/openapi-evaluation-cli-0.0.5-jar-with-dependencies.jar -file 
 ## RAMA CLI General Architecture
 ### UML Sequence Diagram
 Description of the tools behaviour if it is started via command-line.
-
+![Domain Model](sequence.png)
 #### Main
 Entry point of the tool. Command-line [options](###Command-line Options) are detected and passed to the ApplicationService.
 #### ApplicationService
