@@ -8,7 +8,7 @@ Currently RAMA can evaluate APIs that are written in the following RESTful API D
 RAMA is developed as a s Java based command-line tool.
 
 RAMA expects a specification file and returna a maintainability report as JSON or PDF.
-<br> The maintainability report consists of general information and  maintainability metrics that are described in [Metrics](###Metrics) 
+<br> The maintainability report consists of general information and  maintainability metrics that are described in [Metrics](docs/devguide.md#Metrics)
 <br>Example
 ```bash
 # Run with public URI:
