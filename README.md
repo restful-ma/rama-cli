@@ -1,15 +1,16 @@
-# RESTful API Metric Analyzer CLI
-The RESTful API Metric Analyzer CLI (RAMA) is a tool that can evaluate the maintainability of restful APIs based on their API description.
-Currently RAMA can evaluate APIs that are written in the following RESTful API Description Languages:
+# RAMA CLI
+The RAMA (RESTful API Metric Analyzer) CLI is a tool that can evaluate the maintainability of RESTful APIs via several structural metrics. These metrics are calculated based on machine-readable API documentation.
+Currently, RAMA can parse the following RESTful API description languages:
 * OpenAPI V3 https://github.com/OAI/OpenAPI-Specification
 * RAML 1.0 https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/
 * WADL https://www.w3.org/Submission/wadl/
 
-RAMA is developed as a s Java based command-line tool.
+RAMA is developed as a Java-based command-line tool.
 
-RAMA expects a specification file and returna a maintainability report as JSON or PDF.
-<br> The maintainability report consists of general information and  maintainability metrics that are described in [Metrics](docs/devguide.md#Metrics)
-<br>Example
+RAMA takes the path to a specification file as input and returns a maintainability report with metrics as JSON or PDF.
+The maintainability report consists of general information and  maintainability metrics that are described [here](docs/devguide.md#Metrics).
+
+Example:
 ```bash
 # Run with public URI:
 java -jar ./target/restful-api-metric-analyzer-cli-0.0.7-jar-with-dependencies.jar -uri http://url-to-swagger-file.com -format openapi
@@ -20,8 +21,8 @@ ADD EXAMPLE !!!
 
 
 
-# How to use RAMA CLI
-## How to build RAMA CLI
+## General Usage Instructions
+
 ```bash
 # Build and package executable:
 mvn clean install
@@ -32,8 +33,10 @@ mvn clean install -DskipTests
 # Execute tests only:
 mvn clean test
 ```
-## How to run  
-### Command-line Options
+
+TODO: examples for running the tool; result example?
+
+## Command-Line Options
 
 | Option        | Description   | Required|
 | :-------------|:--------------|:--------|
@@ -43,10 +46,11 @@ mvn clean test
 | -pdf $OUTPUT_PATH |  The option -pdf is used, if the user wants an PDF output. A path must be specified behind which the file is saved. | NO** 
 | -json $OUTPUT_PATH | The option -json is used, if the user wants an JSON output. A path must be specified behind which the file is saved. | NO**
 
-*Either a file or a uri has to be specified 
-<br>**If no additional output was specified the report will be only displayed on the console. 
+*Either a file or a URI has to be specified<br>
+**If no additional output was specified the report will be only displayed on the console. 
 
 Example TODO TEST all paths
+
 ```bash
 # Run with public URI:
 java -jar ./target/restful-api-metric-analyzer-cli-0.0.7-jar-with-dependencies.jar -uri http://url-to-swagger-file.com -pdf path/to/file.pdf -json path/to/file.json -format openapi
@@ -59,9 +63,8 @@ java -jar ./target/restful-api-metric-analyzer-cli-0.0.7-jar-with-dependencies.j
 
 # Run customer-srv example with local URL:
 java -jar ./target/restful-api-metric-analyzer-cli-0.0.7-jar-with-dependencies.jar -file ./src/test/resources/CustomerSrv-openapi.yaml -format openapi
-
 ```
 
 
-# How to Contribute
-Description of the architecture, components and metrics can be found in our [devguide](docs/devguide.md)
+## How to Contribute
+Descriptions of the architecture, components, and metrics can be found in our [devguide](docs/devguide.md).
