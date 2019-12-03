@@ -55,20 +55,40 @@ import restful.api.metric.analyzer.cli.model.generated.wadl.properties.SchemaTyp
 import restful.api.metric.analyzer.cli.model.generated.wadl.properties.SequenceType;
 
 /**
+ * Parser that converts WADL or XML files adhering to the official schema at
+ * 																https://www.w3.org/Submission/wadl/
+ * to the internal model.
  *
+ * Format of grammars restricted through properties.xsd. In case of unsuccessful parse, those are merely skipped.
+ *
+ * WADL element   | internal model equivalent
+ * resources      | api
+ * resource       | path
+ * method         | method
+ * request        | requestBody
+ * response       | response
+ * representation | contentMediaType
+ * param          | parameter / property
  */
-public class WadlParser extends Parser {
+public class WADLParser extends Parser {
 
-	private static final Logger logger = LoggerFactory.getLogger(WadlParser.class);
-	private HashMap<String, Property> properties;
+	private static final Logger logger = LoggerFactory.getLogger(WADLParser.class);
+	private HashMap<String, Property> properties; // used to store type definitions
 	private SpecificationFile.Builder spec;
 
-	private int counter;
+	private int counter; // to prevent duplicate names as this causes problems with some metrics
 
-	public WadlParser() {
+	public WADLParser() {
 		fileEnding = "wadl";
 	}
 
+	/**
+	 * Parse a WADL file not located on the local disk
+	 *
+	 * @param url URL to the WADL file
+	 * @return the internal model representation of the parsed file
+	 * @throws ParseException invalid URL or failed to parse
+	 */
 	@Override
 	public SpecificationFile loadPublicUrl(String url) throws ParseException {
 		try {
@@ -82,6 +102,13 @@ public class WadlParser extends Parser {
 		}
 	}
 
+	/**
+	 * Parse a WADL file located on the local disk
+	 *
+	 * @param url PATH to the WADL file
+	 * @return the internal model representation of the parsed file
+	 * @throws ParseException invalid URL or failed to parse
+	 */
 	@Override
 	public SpecificationFile loadLocalFile(String url) throws ParseException {
 		try {
@@ -96,7 +123,7 @@ public class WadlParser extends Parser {
 	}
 
 	/**
-	 * Freshly initializes used attributes
+	 * Freshly initialize class variables
 	 *
 	 * @param url file location
 	 */
@@ -125,31 +152,43 @@ public class WadlParser extends Parser {
 		return context.createUnmarshaller();
 	}
 
+	/**
+	 * Parses the WADL file to the generated WADL POJO model
+	 *
+	 * @param file the WADL file
+	 * @throws JAXBException
+	 */
 	private void unmarshal(File file) throws JAXBException  {
 		Unmarshaller unmarshaller = getUnmarshaller();
 		convertToInternalModel((Application) unmarshaller.unmarshal(file));
 	}
 
+	/**
+	 * Parses the WADL file to the generated WADL POJO model
+	 *
+	 * @param url the WADL file
+	 * @throws JAXBException
+	 */
 	private void unmarshal(URL url) throws JAXBException {
 		Unmarshaller unmarshaller = getUnmarshaller();
 		convertToInternalModel((Application) unmarshaller.unmarshal(url));
 	}
 
 	/**
-	 * Converts from the parsed WADL model to the internal protobuf model
+	 * Converts from the parsed WADL POJO model to the internal protobuf model
 	 *
 	 * @param application WADL model
 	 * @throws JAXBException
 	 */
 	private void convertToInternalModel(Application application) throws JAXBException {
 		if (application.getGrammars() != null) {
-			buildProperties(application.getGrammars().getAny());
+			buildProperties(application.getGrammars().getAny()); // load all properties to the map for later usage
 		}
 
 		for (Resources resources : application.getResources()) {
-			Api.Builder api = Api.newBuilder().addBasePath(resources.getBase());
+			Api.Builder api = Api.newBuilder().addBasePath(resources.getBase()); // resources = api
 			for (Resource resource : resources.getResource()) {
-				addPaths(api, "", resource);
+				addPaths(api, "", resource); // resource = path
 			}
 
 			spec.addApis(api);
@@ -157,24 +196,19 @@ public class WadlParser extends Parser {
 	}
 
 	/**
-	 * Converts a WADL resource to the internal PATH and appends it to API
-	 * <p>
-	 * WADl resources are defined recursively, internal PATH is not
+	 * Converts a WADL resource to the internal PATH and appends it to the API.
+	 * WADl resources are defined recursively, internal PATH is not.
 	 *
 	 * @param api              API to which the converted PATh should be appended
 	 * @param existingPathName previous url path in case of recursive resource
 	 * @param resource         WADl resource which should be converted
 	 */
 	private void addPaths(Api.Builder api, String existingPathName, Resource resource) {
-		Path.Builder path = Path.newBuilder();
-		if (existingPathName.isEmpty()) {
-			path.setPathName(resource.getPath());
-		} else {
-			path.setPathName(existingPathName + resource.getPath());
-		}
+		Path.Builder path = Path.newBuilder()
+				.setPathName(existingPathName + resource.getPath());
 
 		for (Object obj : resource.getMethodOrResource()) {
-			if (obj instanceof Resource) {
+			if (obj instanceof Resource) { // recursively defined
 				addPaths(api, path.getPathName(), (Resource) obj);
 			} else if (obj instanceof Method) {
 				Model.Method method = buildMethod(resource, (Method) obj);
@@ -185,28 +219,35 @@ public class WadlParser extends Parser {
 		api.putPaths(path.getPathName(), path.build());
 	}
 
+	/**
+	 * Converts a WADL method to the internal method equivalent.
+	 *
+	 * @param resource resource the WADL method is part of
+	 * @param parsedMethod WADL method
+	 * @return internal model method
+	 */
 	private Model.Method buildMethod(Resource resource, Method parsedMethod) {
 		Model.Method.Builder method = Model.Method.newBuilder()
 				.setHttpMethod(HttpMethod.valueOf(parsedMethod.getName().toUpperCase()));
 
-		if (parsedMethod.getId() != null) {
+		if (parsedMethod.getId() != null) { // appended number needed as IDs need to be unique for some metrics
 			method.setOperationId(parsedMethod.getId() + "__" + increment());
 		} else {
 			method.setOperationId("__" + increment());
 		}
 
-		if (parsedMethod.getRequest() != null) {
+		if (parsedMethod.getRequest() != null) { // add the request definition
 			RequestBody.Builder requestBody = RequestBody.newBuilder();
 			addMediaTypes(requestBody, parsedMethod.getRequest().getRepresentation());
 			method.addRequestBodies(requestBody);
 
-			addParameters(method, parsedMethod.getRequest().getParam());
+			addParameters(method, parsedMethod.getRequest().getParam()); // add possibly included params to method
 		}
 
 		for (Response response : parsedMethod.getResponse()) {
-			method.addResponses(buildResponse(response));
+			method.addResponses(buildResponse(response)); // add all possible responses
 
-			addParameters(method, response.getParam());
+			addParameters(method, response.getParam()); // add possibly included params to method
 		}
 
 		addParameters(method, resource.getParam());
@@ -214,6 +255,13 @@ public class WadlParser extends Parser {
 		return method.build();
 	}
 
+	/**
+	 * Converts WADL params to internal parameters and append them to a given builder.
+	 * Currently only supports methods
+	 *
+	 * @param obj builder which can hold parameters
+	 * @param params the WADL params
+	 */
 	private void addParameters(MessageOrBuilder obj, List<Param> params) {
 		for (Param param : params) {
 			Parameter parameter = buildParameter(param);
@@ -224,6 +272,12 @@ public class WadlParser extends Parser {
 		}
 	}
 
+	/**
+	 * Converts a WADL param to the internal model equivalent.
+	 *
+	 * @param param WADL param
+	 * @return internal model parameter
+	 */
 	private Parameter buildParameter(Param param) {
 		Parameter.Builder parameter = Parameter.newBuilder()
 				.setRequired(param.isRequired())
@@ -239,15 +293,15 @@ public class WadlParser extends Parser {
 	}
 
 	/**
-	 * Append representation to either internal REQUEST-BODY or RESPONSE
+	 * Append representation equivalent to either internal REQUEST-BODY or RESPONSE
 	 *
 	 * @param obj             Builder of internal model
-	 * @param representations
+	 * @param representations WADL representation
 	 */
 	private void addMediaTypes(MessageOrBuilder obj, List<Representation> representations) {
 		for (Representation repres : representations) {
 			if (repres.getMediaType() == null) {
-				failedParseBehaviour();
+				failedConvertBehaviour();
 				continue;
 			}
 			if (obj instanceof RequestBody.Builder) {
@@ -261,8 +315,8 @@ public class WadlParser extends Parser {
 	/**
 	 * Convert WADL representation to internal CONTENT-MEDIA-TYPE
 	 *
-	 * @param representation
-	 * @return
+	 * @param representation WADL representation
+	 * @return internal model equivalent
 	 */
 	private ContentMediaType buildMediaType(Representation representation) {
 		ContentMediaType.Builder contentMediaType = ContentMediaType.newBuilder()
@@ -286,7 +340,7 @@ public class WadlParser extends Parser {
 			dataModel.putProperties(representation.getElement().getLocalPart(),
 					properties.get(representation.getElement().getLocalPart()));
 		} catch (NullPointerException e) {
-			failedParseBehaviour();
+			failedConvertBehaviour();
 		}
 
 		return contentMediaType.setDataModel(dataModel)
@@ -296,8 +350,8 @@ public class WadlParser extends Parser {
 	/**
 	 * Convert WADL response to model RESPONSE
 	 *
-	 * @param parsedResponse
-	 * @return
+	 * @param parsedResponse WADL response
+	 * @return internal model equivalent
 	 */
 	private Model.Response buildResponse(Response parsedResponse) {
 		Model.Response.Builder response = Model.Response.newBuilder();
@@ -338,7 +392,7 @@ public class WadlParser extends Parser {
 					properties.put(property.getKey(), property);
 				}
 			} catch (JAXBException e) {
-				failedParseBehaviour();
+				failedConvertBehaviour();
 			}
 		}
 	}
@@ -393,7 +447,11 @@ public class WadlParser extends Parser {
 		}
 	}
 
-	private void failedParseBehaviour() {
+	/**
+	 * Defines the behaviour if a WADL element cannot be converted to the internal model.
+	 * Currently only notifies the user, in the command line.
+	 */
+	private void failedConvertBehaviour() {
 		logger.error("Skipped invalid formatted properties");
 	}
 

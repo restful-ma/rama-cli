@@ -18,7 +18,7 @@ import org.w3c.dom.Element;
 
 
 /**
- * <p>Java-Klasse fï¿½r anonymous complex type.
+ * <p>Java-Klasse für anonymous complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -75,8 +75,8 @@ public class Doc {
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * {@link Object }
      * {@link Element }
+     * {@link Object }
      * 
      * 
      */

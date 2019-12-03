@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the openapi.evaluation.cli.model.generated.wadl package. 
+ * generated in the restful.api.metric.analyzer.cli.model.generated.wadl package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,7 +23,7 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: openapi.evaluation.cli.model.generated.wadl
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: restful.api.metric.analyzer.cli.model.generated.wadl
      * 
      */
     public ObjectFactory() {

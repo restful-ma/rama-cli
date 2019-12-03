@@ -18,9 +18,9 @@ import restful.api.metric.analyzer.cli.model.generated.internal.Model.Method;
 import restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor;
 import restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFile;
 import restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat;
-import restful.api.metric.analyzer.cli.parser.WadlParser;
+import restful.api.metric.analyzer.cli.parser.WADLParser;
 
-class WadlToApiModel0Test {
+class WADLToApiModel0Test {
 
 	private static SpecificationFile expectedModel;
 	private static String basePath = "http://localhost:8080/resources/v1/";
@@ -60,7 +60,7 @@ class WadlToApiModel0Test {
 
 	private SpecificationFile parseFile() throws ParseException {
 		Path resourceDirectory = Paths.get("src", "test", "resources","WADLParser", "wadl_example_0.wadl");
-		return new WadlParser().loadPublicUrl("https://raw.githubusercontent.com/LucyBot-Inc/api-spec-converter/master/test/input/wadl/regex_paths.wadl");
+		return new WADLParser().loadPublicUrl("https://raw.githubusercontent.com/LucyBot-Inc/api-spec-converter/master/test/input/wadl/regex_paths.wadl");
 	}
 
 	@Test

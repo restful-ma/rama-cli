@@ -27,9 +27,9 @@ import restful.api.metric.analyzer.cli.model.generated.internal.Model.Response;
 import restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor;
 import restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFile;
 import restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat;
-import restful.api.metric.analyzer.cli.parser.WadlParser;
+import restful.api.metric.analyzer.cli.parser.WADLParser;
 
-class WadlToApiModel1Test {
+class WADLToApiModel1Test {
 
 	private static SpecificationFile expectedModel;
 	private static String basePath = "http://api.search.yahoo.com/NewsSearchService/V1/";
@@ -119,7 +119,7 @@ class WadlToApiModel1Test {
 
 	private SpecificationFile parseFile() throws ParseException {
 		Path resourceDirectory = Paths.get("src", "test", "resources","WADLParser", "wadl_example_1.xml");
-		return new WadlParser().loadLocalFile(resourceDirectory.toString());
+		return new WADLParser().loadLocalFile(resourceDirectory.toString());
 	}
 
 	@Test

@@ -10,7 +10,7 @@ public enum ParserType {
 		case RAML:
 			return new RAMLParser();
 		case WADL:
-			return new WadlParser();
+			return new WADLParser();
 		default:
 			return null;
 		}
