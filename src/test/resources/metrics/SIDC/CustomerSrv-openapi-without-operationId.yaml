@@ -1,0 +1,147 @@
+openapi: 3.0.1
+info:
+  title: CustomerSrv
+  description: A service providing CRUD operations for `Customer` entities as well
+    as a credit rating check.
+  version: 1.0.0
+paths:
+  /customers/{customerId}:
+    get:
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/LongParam'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    put:
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/LongParam'
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponse'
+    delete:
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/LongParam'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponse'
+  /customers:
+    get:
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          $ref: '#/components/schemas/IntParam'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    post:
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseResponse'
+  /customers/{customerId}/credit-rating-check:
+    get:
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/LongParam'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditRatingCheckResponse'
+components:
+  schemas:
+    CreditRatingCheckResponse:
+      type: object
+      properties:
+        customerId:
+          minimum: 1
+          type: integer
+          format: int64
+        acceptable:
+          type: boolean
+    BaseResponse:
+      required:
+      - message
+      - status
+      - statusCode
+      type: object
+      properties:
+        status:
+          type: string
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+    IntParam:
+      type: object
+    Customer:
+      required:
+      - creditRating
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        email:
+          type: string
+        creditRating:
+          maximum: 6
+          minimum: 1
+          type: integer
+          format: int32
+    LongParam:
+      type: object

@@ -1,0 +1,18 @@
+
+.vscode/
+bin/
+.classpath
+.project
+.settings/
+.metadata/
+target/
+bin/
+
+
+.DS_Store
+jsonTest.json
+pdfTest.pdf
+
+# IntelliJ
+.idea/
+*.iml

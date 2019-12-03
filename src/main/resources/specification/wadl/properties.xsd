@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="schema" type="xs:schemaType"/>
+    <xs:complexType name="elementType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="name" use="required"/>
+                <xs:attribute type="xs:QName" name="type" use="required"/>
+                <xs:attribute type="xs:int" name="minOccurs" default="0" use="optional"/>
+                <xs:attribute type="xs:string" name="maxOccurs" use="optional"/>
+                <xs:attribute type="xs:boolean" name="nillable" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="sequenceType">
+        <xs:sequence>
+            <xs:element type="xs:elementType" name="element" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="complexTypeType">
+        <xs:sequence>
+            <xs:element type="xs:sequenceType" name="sequence"/>
+        </xs:sequence>
+        <xs:attribute type="xs:QName" name="name" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="schemaType">
+        <xs:sequence>
+            <xs:element type="xs:elementType" name="element" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:complexTypeType" name="complexType" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

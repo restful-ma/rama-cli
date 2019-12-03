@@ -1,0 +1,187 @@
+<application xmlns="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <grammars>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+                   elementFormDefault="unqualified">
+            <xs:element name="appProfile" type="appProfile"/>
+            <xs:element name="customerProfile" type="customerProfile"/>
+            <xs:complexType name="customerProfile">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="accessPaymentServicesEnabled" type="xs:boolean"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="attribute"/>
+                    <xs:element minOccurs="0" name="billingType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="defaultCurrency" type="xs:string"/>
+                    <xs:element minOccurs="0" name="defaultSpendingLimitCurrency" type="xs:string"/>
+                    <xs:element minOccurs="0" name="maximumSpendingLimit" type="xs:double"/>
+                    <xs:element minOccurs="0" name="minimumSpendingLimit" type="xs:double"/>
+                    <xs:element minOccurs="0" name="customerCategory" type="xs:string"/>
+                    <xs:element minOccurs="0" name="customerEnabled" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="customerName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="paymentNotificationEndpointAddress" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pseCustomerId" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceURL" type="xs:string"/>
+                    <xs:element minOccurs="0" name="settlementContractUuid" type="xs:string"/>
+                    <xs:element minOccurs="0" name="isSpendingLimitEnabled" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="abcCustomerId" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="attribute">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="key" type="xs:string"/>
+                    <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="appProfile">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="appEnabled" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="appName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="appPassword" type="xs:string"/>
+                    <xs:element minOccurs="0" name="appUserName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="appUuid" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="attributes" nillable="true" type="attribute"/>
+                    <xs:element minOccurs="0" name="description" type="xs:string"/>
+                    <xs:element minOccurs="0" name="customerName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="resourceURL" type="xs:string"/>
+                    <xs:element minOccurs="0" name="serviceContractName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="abcAppId" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </grammars>
+    <resources base="http://mpsamara-mobl-vm1:9078/customermanagement/v1">
+        <resource path="/customers">
+            <resource path="/">
+                <method name="DELETE">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+                <method name="GET">
+                    <request>
+                        <param name="page" style="query" type="xs:int"/>
+                        <param name="partialCustomerName" style="query" type="xs:string"/>
+                    </request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+                <method name="POST">
+                    <request>
+                        <representation mediaType="app/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+                <method name="PUT">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}">
+                <method name="DELETE">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}">
+                <param name="customerUserName" style="template" type="xs:string"/>
+                <method name="GET">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+                <method name="POST">
+                    <request>
+                        <representation mediaType="app/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}">
+                <method name="PUT">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}/apps">
+                <method name="DELETE">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}/apps">
+                <param name="customerUserName" style="template" type="xs:string"/>
+                <method name="GET">
+                    <request>
+                        <param name="page" style="query" type="xs:int"/>
+                    </request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+                <method name="POST">
+                    <request>
+                        <representation mediaType="app/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}/apps">
+                <method name="PUT">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}/apps/{appName}">
+                <method name="DELETE">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}/apps/{appName}">
+                <param name="customerUserName" style="template" type="xs:string"/>
+                <param name="appName" style="template" type="xs:string"/>
+                <method name="GET">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+                <method name="POST">
+                    <request>
+                        <representation mediaType="app/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/{customerUserName}/apps/{appName}">
+                <method name="PUT">
+                    <request></request>
+                    <response>
+                        <representation mediaType="app/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

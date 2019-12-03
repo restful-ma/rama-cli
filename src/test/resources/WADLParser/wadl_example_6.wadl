@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<application xmlns="http://xmlns.oracle.com/Enterprise/Tools/services"
+             xmlns:QE_FLIGHTPLAN_SYNC.VERSION_1="http://xmlns.oracle.com/Enterprise/Tools/schemas/QE_FLIGHTPLAN_SYNC.VERSION_1"
+             xmlns:WEATHERDATA.v1="http://xmlns.oracle.com/Enterprise/Tools/schemas/WEATHERDATA.v1"
+             xmlns:WEATHER_FAULT.v1="http://xmlns.oracle.com/Enterprise/Tools/schemas/Weather.Weather_Fault.v1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <grammars>
+        <include href="WEATHERDATA.v1.xsd"/>
+        <include href="WEATHER_FAULT.v1.xsd"/>
+        <include href="QE_FLIGHTPLAN_SYNC.VERSION_1.xsd"/>
+    </grammars>
+    <resources base=" http://kcollins-t61/PSIGW/RESTListeningConnector/QE_LOCAL">
+        <resource uri="WeatherStation.v1">
+            <method href="#GETWeatherStation.v1"/>
+            <method href="#HEADWeatherStation.v1"/>
+            <method href="#POSTWeatherStation.v1"/>
+            <method href="#PUTWeatherStation.v1"/>
+            <method href="#DELETEWeatherStation.v1"/>
+        </resource>
+    </resources>
+    <method id="DELETEWeatherStation.v1" name="DELETE">
+        <request>
+            <resource path="weather/{state}/{city}?forecast={day}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+                <param name="day" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}/{city}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+            </resource>
+        </request>
+        <response Status="200">
+            <representation element="WEATHERDATA.v1:WeatherInfo" id="WEATHERDATA.v1.xsd"
+                            mediaType="text/xml"/>
+        </response>
+    </method>
+    <method id="GETWeatherStation.v1" name="GET">
+        <request>
+            <resource path="weather/{state}/{city}?forecast={day}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+                <param name="day" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}/{city}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <param name="Accept-Charset" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Character sets that are acceptable: utf-8</doc>
+            </param>
+            <param name="Accept-Language" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Acceptable languages for response en-US</doc>
+            </param>
+            <param name="If-Modified-Since" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Allows a 304 Not Modified to be returned if content is
+                    unchanged</doc>
+            </param>
+            <param name="Authorization" required="true" style="header">
+                <doc xml:lang="en">Web Service call must be autheticated using Basic HTTP auth.</doc>
+            </param>
+        </request>
+        <response Status="200">
+            <representation element="WEATHERDATA.v1:WeatherInfo" id="WEATHERDATA.v1.xsd"
+                            mediaType="text/html"/>
+            <param name="Allow" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Valid actions for a specified resource.</doc>
+            </param>
+            <param name="Content-Language" style="header" type="xsd:string">
+                <doc xml:lang="ENG">The language the content is in</doc>
+            </param>
+            <param name="Date" style="header" type="xsd:string">
+                <doc xml:lang="ENG">The date and time that the message was sent</doc>
+            </param>
+            <param name="Expires" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Gives the date/time after which the response is considered
+                    stale</doc>
+            </param>
+            <param name="Host" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Transaction Server</doc>
+            </param>
+            <param name="Warning" style="header" type="xsd:string">
+                <doc xml:lang="ENG">A general warning about possible problems with the entity body.</doc>
+            </param>
+            <fault Status="400" element="Weather_Fault" id="WEATHER_FAULT.v1" mediaType="text/xml"/>
+        </response>
+    </method>
+    <method id="HEADWeatherStation.v1" name="HEAD">
+        <request>
+            <resource path="weather/{state}/{city}?forecast={day}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+                <param name="day" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}/{city}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <param name="Accept-Charset" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Character sets that are acceptable: utf-8</doc>
+            </param>
+            <param name="Accept-Language" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Acceptable languages for response en-US</doc>
+            </param>
+            <param name="If-Modified-Since" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Allows a 304 Not Modified to be returned if
+                    content is unchanged</doc>
+            </param>
+        </request>
+        <response Status="0">
+            <param name="Allow" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Valid actions for a specified resource.</doc>
+            </param>
+            <param name="Content-Language" style="header" type="xsd:string">
+                <doc xml:lang="ENG">The language the content is in</doc>
+            </param>
+            <param name="Date" style="header" type="xsd:string">
+                <doc xml:lang="ENG">The date and time that the message was sent</doc>
+            </param>
+            <param name="Expires" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Gives the date/time after which the response is
+                    considered stale</doc>
+            </param>
+            <param name="Host" style="header" type="xsd:string">
+                <doc xml:lang="ENG">Transaction Server</doc>
+            </param>
+            <param name="Warning" style="header" type="xsd:string">
+                <doc xml:lang="ENG">A general warning about possible problems with
+                    the entity body.</doc>
+            </param>
+        </response>
+    </method>
+    <method id="POSTWeatherStation.v1" name="POST">
+        <request>
+            <resource path="weather/{state}/{city}?forecast={day}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+                <param name="day" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}/{city}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <representation element="QE_FLIGHTPLAN_SYNC.VERSION_1:QE_FLIGHTPLAN_SYNC"
+                            id="QE_FLIGHTPLAN_SYNC.VERSION_1.xsd" mediaType="text/xml"/>
+        </request>
+        <response Status="201">
+            <representation element="WEATHERDATA.v1:WeatherInfo" id="WEATHERDATA.v1.xsd"
+                            mediaType="text/xml"/>
+            <fault Status="400" element="Weather_Fault" id="WEATHER_FAULT.v1" mediaType="text/xml"/>
+        </response>
+    </method>
+    <method id="PUTWeatherStation.v1" name="PUT">
+        <request>
+            <resource path="weather/{state}/{city}?forecast={day}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+                <param name="day" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}/{city}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+                <param name="city" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <resource path="weather/{state}">
+                <param name="state" required="true" style="template" type="xsd:string"/>
+            </resource>
+            <representation element="QE_FLIGHTPLAN_SYNC.VERSION_1:QE_FLIGHTPLAN_SYNC" id=
+                    "QE_FLIGHTPLAN_SYNC.VERSION_1.xsd" mediaType="text/xml"/>
+        </request>
+        <response Status="200">
+            <representation element="WEATHERDATA.v1:WeatherInfo" id="WEATHERDATA.v1.xsd"
+                            mediaType="text/xml"/>
+        </response>
+    </method>
+</application>

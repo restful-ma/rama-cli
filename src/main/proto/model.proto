@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package internal;
+
+option java_package = "restful.api.metric.analyzer.cli.model.generated.internal";
+option java_outer_classname = "Model";
+
+message SpecificationFile {
+    string filePath = 1;
+    string title = 2;
+    SpecificationDescriptor specificationDescriptor = 3;
+    string apiVersion = 4;
+    repeated Api apis = 5;
+}
+
+message SpecificationDescriptor {
+    SpecificationFormat specificationFormat = 1 ;
+    string version = 2;
+}
+
+enum SpecificationFormat {
+    API_BLUEPRINT = 0;
+    OPENAPI = 1;
+    RAML = 2;
+    WADL = 3;
+}
+
+message Api {
+    repeated string basePath = 1;
+    map<string, Path> paths = 2;				// maps key:value e.g. "/pets/{id}":Path object
+}
+
+message Path {
+    string pathName = 1;
+    map<string, Method> methods = 2;			// maps key,value e.g. "GET":Method object
+}
+
+enum HttpMethod {
+    CONNECT = 0;
+    DELETE = 1;
+    GET = 2;
+    HEAD = 3;
+    OPTIONS = 4;
+    POST = 5;
+    PUT = 6;
+    TRACE = 7;
+    PATCH = 8;
+}
+
+message Method {
+    HttpMethod httpMethod = 1;
+    string operationId = 2;
+    map<string, Parameter> parameters = 3;      // maps key:value e.g. "age":Parameter object; age is the parameter name
+    repeated Response responses = 4;        // maps key:value e.g. "404":Method object;  "404 is" the response code
+    repeated RequestBody requestBodies = 5;
+}
+
+message Parameter {
+    string key = 1;
+    DataType type = 2;
+    ParameterLocation location = 3;
+    bool required = 4;
+}
+
+enum DataType {
+    STRING = 0;
+    SHORT = 1;
+    INTEGER = 2;
+    LONG = 3;
+    FLOAT = 4;
+    DOUBLE = 5;
+    BOOLEAN = 6;
+    ARRAY = 7;
+    OBJECT = 8;
+}
+
+enum ParameterLocation {
+    COOKIE = 0;
+    HEADER = 1;
+    PATH = 2;
+    QUERY = 3;
+    TEMPLATE = 4;
+    MATRIX = 5;
+    PLAIN = 6;
+}
+
+message Response {
+    repeated string code = 1;
+    map<string, ContentMediaType> contentMediaTypes = 2;        // maps key:value e.g. "application/json":ContentMediaTypes object
+}
+
+message ContentMediaType {
+    string mediaType = 1; //  the returned mediatype e.g. "application/json"
+    DataModel dataModel = 2;  //contains one global dataModel which describes the data to be returned
+}
+
+message DataModel {
+    DataType dataType = 1;  //e.g. mostly objects sometimes also arrays
+    map<string, Property> properties = 2;	 // maps key:value e.g. "age":Propety object; "age" is the key of the Property
+    DataModelRelationShip dataModelRelationShip = 3;
+	map<string, DataModel> dataModels = 4;  // maps key:value e.g. "$nameOfDataModel":DataModel object; the key is the name of a subDatatype
+}
+
+enum DataModelRelationShip {
+	All = 0;
+	ANY = 1;
+    ONLYONE = 2;
+    UNDEFINED = 3;
+}
+
+message Property {
+    string key = 1;
+    DataType type = 2;
+    string format = 3;
+    int32 minOccurs = 4;
+    int32 maxOccurs = 5;
+    bool nillable = 6;
+    map<string, Property> subProperties = 7;    // maps key:value e.g. "age":Propety object; "age" is the key of the Property
+    DataModel dataModel = 8;
+}
+
+message RequestBody {
+    map<string, ContentMediaType> contentMediaTypes = 2;        // maps key:value e.g. "application/json":ContentMediaTypes object
+}
