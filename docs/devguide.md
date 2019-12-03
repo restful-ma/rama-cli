@@ -31,6 +31,7 @@ All Parsers inherit from the `Parser.java` class.
 The Parser are responsible for transforming specification files from each format to our [Internal API Model](#Internal%20API%20Model)
 
 #### Internal API Model
+![Class Diagram](class-diagram.png)
 Each parser has to parse a given api specification into the internal model for the evaluation. The internal model consists of the following eleven classes.
 1. SpecificationFile: Contains the metainformation of the file.
 2. SpecificationDescriptor: Contains the format and the version of the format of the file.
