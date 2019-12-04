@@ -52,7 +52,7 @@ DataModelRelationship are required if the data schema has something like oneOf, 
 To add a new parser, the `Parser.java` class should be extended. The Parser class provides the two functions loadPublicUrl and loadLocalUrl which return a SpecificationFile object. At least one of these functions should be overridden and used as an entry point for the parser. Furthermore the parser has to parse all relevant information of the given api specification into the returned SpecificationFile object. <br>
 Also the `ParserType.java` has to extended with a new ENUM and a new case has to be added to the switch statement
 
-## How to modify existing parsers ?
+## How are existing parsers constructed and how could they be modified ?
 
 The tool currently has 3 parsers that are described as follows:
 * [OpenAPI V3](parsers/oapi3.md)
