@@ -8,10 +8,10 @@ Description of the tools behavior if it is started via command-line.
 ![Sequence Diagram](sequenceV2.png)
 
 #### Main
-Entry point of the tool. Command-line [options](#Command-line Options) are detected and passed to the ApplicationService.
+Entry point of the tool. Command-line [options](../README.md#Command-Line-Options) are detected and passed to the ApplicationService.
 
 #### ApplicationService
-the ApplicationService is responsible for creating:
+The ApplicationService is responsible for creating:
 * RestfulSystem 
 * RestfulService
 * Evaluation
@@ -32,40 +32,36 @@ The Parser are responsible for transforming specification files from each format
 
 #### Internal API Model
 ![Class Diagram](class-diagram.png)
-Each parser has to parse a given api specification into the internal model for the evaluation. The internal model consists of the following eleven classes.
-1. SpecificationFile: Contains the meta-information of the file.
-2. SpecificationDescriptor: Contains the format and the version of the format of the file.
-3. API: Contains the base Path and a Path for each individual endpoint of the API.
-4. Path: A Path objected contains the name of the path and a list of all methods the endpoint provides.
-5. Method: Each Method object should have its HttpMethod defined and contains a list of all parameters, responses and request bodies the method contains, additionally, an operationID must be provided. Should the API specification language not require a operationID, you can use an incrementing integer for this variable.
-6. Parameter: A Parameter object should provide its name as the key (the same value that has been used as key in the parameter map), the data type of the parameter, where the parameter was specified and if the parameter is required or not.
-7. Response: Each Response object contains the codes for which the response is send and the possible content media types contained in the response.
-8. RequestBody: Each RequestBody object has all the possible content media types it contains.
-9. ContentMediaType: Each ContentMediaType object has its media Type as a String and a DataModel object.
-10. DataModel: A DataModel object has a data type which is usually either object or array, a map of properties contained in this DataType object, a DataModelRelationship object and a list of sub DataModel objects.
-DataModelRelationship are required if the data schema has something like oneOf, allOf or onlyOne. If a data schema has such properties it is required to set the DataModelRelationship and the dataModels map has to be filled.
-11. Property: A property has its name as a key(the same value that has been used as key in the parameter map), the data Type of the property, the format of the property, a list of SubProperty objects and it can also contain a DataModel object. Properties, which themself contain more properties have to be listed under sub properties as well. Furthermore, a property contains a boolean which defines whether or not this property can be null and the two int values minOccurs and maxOccurs.
-<br> The dataModel of a property is used when the property is defined by a schema that has oneOf, allOf or onlyOne as property.
+Each parser has to parse a given API specification into the internal model for the evaluation. The internal model consists of the following 11 classes.
+1. `SpecificationFile`: Contains the meta-information of the file.
+2. `SpecificationDescriptor`: Contains the format and the version of the format of the file.
+3. `API`: Contains the base `Path` and a `Path` for each individual endpoint of the API.
+4. `Path`: A `Path` object contains the name of the path and a list of all methods the endpoint provides.
+5. `Method`: Each `Method` object should have its HttpMethod defined and contains a list of all `Parameters`, `Responses` and `RequestBodies` it contains. Additionally, an `operationID` must be provided. Should the API specification language not require a `operationID`, you can use an incrementing integer for this variable.
+6. `Parameter`: A `Parameter` object should provide its name as the key (the same value that has been used as key in the `Parameter` map), the data type of the `Parameter`, where the `Parameter` was specified and if it is required or not.
+7. `Response`: Each `Response` object contains the codes for which the `Response` is send and the possible content media types contained in the `Response`.
+8. `RequestBody`: Each `RequestBody` object has all the possible `ContentMediaTypes` it contains.
+9. `ContentMediaType`: Each `ContentMediaType` object has its media type as a String and a `DataModel` object.
+10. `DataModel`: A `DataModel` object has a data type which is usually either object or array, a map of `Properties` contained in it, a `DataModelRelationship` object and a list of child `DataModel` objects.
+`DataModelRelationship` is required if the data schema uses a modifier like `oneOf`, `allOf`, or `onlyOne`.
+11. `Property`: A `Property` has its name as a key (the same value that has been used as key in the `Properties` map), the `DataType` of the property, the format of the property, a list of child `Property` objects and it can also contain a `DataModel` object. `Properties` which themselves contain more properties have to be listed under sub properties as well. Furthermore, a property contains a `boolean` which defines whether or not this property can be null and the two `int` values `minOccurs` and `maxOccurs`. The `DataModel` of a `Property` is used when it is defined by a schema that uses `oneOf`, `allOf`, or `onlyOne`.
 
-## How to add new parsers ?
+## How to add new parsers?
+To add a new parser, create a new class that inherits from the abstract `Parser.java` class. The `Parser` class provides the two methods `loadPublicUrl` and `loadLocalUrl`, which return a `SpecificationFile` object. At least one of these methods should be overridden and used as an entry point for the parser. Furthermore, the `Parser` has to parse all relevant information of the given API specification into the returned SpecificationFile object. Lastly, the `ParserType.java` has to extended with a new `ENUM` and a new `case` has to be added to the `switch` statement.
 
-To add a new parser, the `Parser.java` class should be extended. The Parser class provides the two functions loadPublicUrl and loadLocalUrl which return a SpecificationFile object. At least one of these functions should be overridden and used as an entry point for the parser. Furthermore the parser has to parse all relevant information of the given api specification into the returned SpecificationFile object. <br>
-Also the `ParserType.java` has to extended with a new ENUM and a new case has to be added to the switch statement
-
-## How are existing parsers constructed and how could they be modified ?
+## How are existing parsers implemented and how could they be modified?
 
 The tool currently has 3 parsers that are described as follows:
 * [OpenAPI V3](parsers/oapi3.md)
 * [RAML](parsers/raml.md)
 * [WADL](parsers/wadl.md)
 
-## How to add or modify metrics ?
-To extend the tool with additional metrics, the developer has to implement the IMetric interface. The interface contains the important methods which the implemented metric should have.
-JUnit-test for new metrics should be implemented and all required specification files for a specific metric test should be copied in its own `src/test/resources/metrics/...` folder so that it is easier to maintain metrics.
+## How to add or modify metrics?
+To extend the tool with additional metrics, create a new class that implements the `IMetric` interface. The interface contains all methods expected by the tool. JUnit tests for new metrics should also be implemented and all required specification files for a specific metric test should be copied in a new `src/test/resources/metrics/...` folder so that it is easier to maintain metrics.
 
-In order to use the also available web-app-api project as a backend for the Vue JS frontend, the developer has to make sure that each new metric also has an ini file in the metric-ini folder. Expected are four keys for the section "thresholds" and one key for the section "colorDistribution". In thresholds the developer sets the keys for the absolute color scheme used in the Vue JS frontend. The lower and upper bound of the colors red and green are to be determined. Also, the boolean key "maxGreen" in the section "colorDistribution" determines if the highest value is presented green and the lowest value is presented red or vice versa in the relative color scheme used in the Vue JS frontend.
+In order to use the available web-app-api project as a backend for the Vue.js frontend, the developer has to make sure that each new metric also has an `ini` file in the `src\main\resources\metric-ini` folder. Four keys for the `[thresholds]` section and one for the `[colorDistribution]` section are expected. In `[thresholds]`, set the keys for the absolute color scheme used in the Vue.js frontend. The lower and upper bound of the colors red and green are to be determined. The `boolean` key `maxGreen` in `[colorDistribution]` determines if the highest value is presented green and the lowest value is presented red or vice versa.
 
-## How to extend the internal API model ?
+## How to extend the internal API model?
 
 To modify the internal model the ProtoBuf file in `src/main/proto` has to be adjusted. While new properties can simply be inserted, new classes have to be defined as a new message. The [official language guide](https://developers.google.com/protocol-buffers/docs/proto3) is a more elaborate starting point to familiarize yourself with ProtoBuf. Currently the proto sources have to be compiled manually, which is done by invoking the [Protocol Compiler](https://developers.google.com/protocol-buffers/docs/downloads.html) as follows:
 ```

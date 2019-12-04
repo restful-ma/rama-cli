@@ -167,25 +167,9 @@ public class RAMLParser extends Parser {
 			
 			//Fill interal model RequestBody object
 			for (TypeDeclaration body : method.body()) {
-
-				Model.ContentMediaType.Builder contentMediaTypeBuilder = Model.ContentMediaType.newBuilder();
-
-				
-				contentMediaTypeBuilder.setMediaType(body.name());
-				String dataModelName = body.type().replace("[", "").replace("]", "");
-				if (!dataModelName.equals("any")) {
-					try {
-						contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName));
-					} catch (Exception e) {
-						logger.error("Missing data Model: " + dataModelName);
-						logger.error("Parser Type value:" + body.type());
-						logger.error("location" + pathBuilder.getPathName());
-						logger.error(e.getMessage());
-					} 
-				}
-				requestBodyBuilder.putContentMediaTypes(contentMediaTypeBuilder.getMediaType(),contentMediaTypeBuilder.build());
-				contentMediaTypeBuilder.clear();
+				requestBodyBuilder.putContentMediaTypes(body.name(),getContentMediaType(body));
 				methodBuilder.addRequestBodies(requestBodyBuilder.build());
+				requestBodyBuilder.clear();
 			}
 			
 			//Fill interal model Parameter object with query Parameter data
@@ -205,30 +189,8 @@ public class RAMLParser extends Parser {
 
 				responseBuilder.addCode(response.code().value());
 				if (!response.body().isEmpty()) {
-					Model.ContentMediaType.Builder contentMediaTypeBuilder = Model.ContentMediaType.newBuilder();
 					for (TypeDeclaration contentMediaType : response.body()) {
-						contentMediaTypeBuilder.setMediaType(contentMediaType.name());
-						String dataModelName = contentMediaType.type();
-						if (!dataModelName.equals("any")) {
-							if (dataModelName.contains("|")) {
-								dataModelName = dataModelName.split(" | ")[0];
-							}
-							try {
-								if (!dataModelName.contains("[")) {
-									contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName));
-								}else {
-									dataModelName = dataModelName.replace("[", "").replace("]", "");
-									contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName).toBuilder().setDataType(Model.DataType.ARRAY).build());	
-								}
-							} catch (Exception e) {
-								logger.error("Missing data Model: " + dataModelName);
-								logger.error(pathBuilder.getPathName());
-								logger.error(response.code().value());
-								logger.error(e.getMessage());
-							} 
-						}
-						responseBuilder.putContentMediaTypes(contentMediaType.name(), contentMediaTypeBuilder.build());
-						contentMediaTypeBuilder.clear();
+						responseBuilder.putContentMediaTypes(contentMediaType.name(), getContentMediaType(contentMediaType));
 					}
 				}
 
@@ -325,7 +287,7 @@ public class RAMLParser extends Parser {
 					propertyBuilder.setType(Model.DataType.OBJECT);
 				}
 				if (!type.equals("date")&& !type.equals("dateTime") && !type.equals("time") && !type.equals("base64Binary")) {
-					String stringArray[] = type.split(":");
+					String[] stringArray = type.split(":");
 					try {
 						Model.DataModel referenzedModel = dataModelHashMap.get(stringArray[stringArray.length - 1]);
 						propertyBuilder.putAllSubProperties(referenzedModel.getPropertiesMap()); // add Properties
@@ -444,16 +406,16 @@ public class RAMLParser extends Parser {
 			builder = factory.newDocumentBuilder();
 
 			// Parse the content to Document object
-			Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
-			return doc;
+			return builder.parse(new InputSource(new StringReader(xmlString)));
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		return null;
 	}
 	
 	/**
-	 * Extract internal model Paramter object from the java-raml-parser paramter object
+	 * Extract internal model Parameter object from the java-raml-parser paramter object
 	 * @param parameter java-raml-parser paramter object.
 	 * @return internal model Parameter object.
 	 */
@@ -467,15 +429,44 @@ public class RAMLParser extends Parser {
 			if (containsDataType(parameter.type().toUpperCase().toUpperCase())) {
 				parameterBuilder.setType(Model.DataType.valueOf(parameter.type().toUpperCase()));
 			} else {
-				if (parameter.type().toUpperCase().equals("NUMBER")) {
+				if (parameter.type().equalsIgnoreCase("NUMBER")) {
 					parameterBuilder.setType(Model.DataType.INTEGER);
 				}
 			}
-			try {
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		return parameterBuilder.build();
+	}
+	
+	/**
+	 * Extract the information for the ContentMedia Type object for the request body and response
+	 * from a java-raml-parser TypeDeclaration  object.
+	 * @param contentMediaType java-raml-parser object that contains the information
+	 * 	for the internal model ContentMediaType
+	 * @return internal model ContentMediaType object
+	 */
+	private Model.ContentMediaType getContentMediaType(TypeDeclaration contentMediaType){
+		Model.ContentMediaType.Builder contentMediaTypeBuilder = Model.ContentMediaType.newBuilder();
+		
+		contentMediaTypeBuilder.setMediaType(contentMediaType.name());
+		String dataModelName = contentMediaType.type();
+		if (!dataModelName.equals("any")) {
+			if (dataModelName.contains("|")) {
+				dataModelName = dataModelName.split(" | ")[0];
+			}
+			try {
+				if (!dataModelName.contains("[")) {
+					contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName));
+				}else {
+					dataModelName = dataModelName.replace("[", "").replace("]", "");
+					contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName).toBuilder().setDataType(Model.DataType.ARRAY).build());	
+				}
+			} catch (Exception e) {
+				logger.error("Missing data Model: " + dataModelName);
+				logger.error(e.getMessage());
+			} 
+		}
+	
+		
+		return contentMediaTypeBuilder.build();
 	}
 }
