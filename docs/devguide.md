@@ -62,12 +62,12 @@ In order to use the also available web-app-api project as a backend for the Vue 
 
 ## How to extend the internal API model ?
 
-To modify the internal model the ProtoBuf file in `src/main/proto` has to be adjusted. While new properties can simply be inserted, new classes have to be definied as a new message. The [official language guide](https://developers.google.com/protocol-buffers/docs/proto3) is a more elaborate starting point to familiarize yourself with ProtoBuf. Currently the proto sources have to be compiled manually, which is done by invoking the [Protocol Compiler](https://developers.google.com/protocol-buffers/docs/downloads.html) as follows:
+To modify the internal model the ProtoBuf file in `src/main/proto` has to be adjusted. While new properties can simply be inserted, new classes have to be defined as a new message. The [official language guide](https://developers.google.com/protocol-buffers/docs/proto3) is a more elaborate starting point to familiarize yourself with ProtoBuf. Currently the proto sources have to be compiled manually, which is done by invoking the [Protocol Compiler](https://developers.google.com/protocol-buffers/docs/downloads.html) as follows:
 ```
 protoc --proto_path=IMPORT_PATH\src\main\proto --java_out=DST_DIR\src\main\java model.proto
 ```
 At a later point this build process should probably be automated via maven.
-The generated Java class holds `Builder` factories for all definied messages with the appropiate getters and setters. After an object has been build, it has to be casted back to a builder to allow for further modifications. The [official tutorial](https://developers.google.com/protocol-buffers/docs/javatutorial) is more exhaustive.
+The generated Java class holds `Builder` factories for all defined messages with the appropriate getters and setters. After an object has been build, it has to be casted back to a builder to allow for further modifications. The [official tutorial](https://developers.google.com/protocol-buffers/docs/javatutorial) is more exhaustive.
 
 It is strongly advised to check all existing metrics for needed adjustments and especially incorporate the updated model into all implemented parsers. This advice stands regardless of if the fact, if made changes technically necessitate adjustments of either parsers or metrics. Only this assiduous approach maintains the correctness of calculated metrics.
 
