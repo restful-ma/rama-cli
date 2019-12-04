@@ -1,3 +1,5 @@
+# WADL Parser
+
 To develop this parser, the definition schema of [WADL](https://www.w3.org/Submission/wadl/wadl.xsd) was used to generate a JAXB model. Thus during file parsing, an exhaustive in between POJO model is created. This model is basis for the transformation to the internal model. In case of changes of the internal model, the in between model does not need to change, as it already contains all available data and adjustments in the transformation suffice.
 Given the lack of a formal representation format definition, combined the impossibility of correctly parsing every unknown input, we opted to create a base schema for representations and requiring these to be present in the parsed file. This schema definition was created by querying many files for their used elements. Afterwards another JAXB model was generated, based on this schema. Thereby a high maintainability can be retained, because changes of this schema can be quickly converted to new code.
 
