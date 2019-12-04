@@ -448,6 +448,7 @@ public class RAMLParser extends Parser {
 			return doc;
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		return null;
 	}
@@ -474,6 +475,7 @@ public class RAMLParser extends Parser {
 			try {
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 		}
 		return parameterBuilder.build();
