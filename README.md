@@ -12,7 +12,7 @@ The maintainability report consists of general information and  maintainability 
 
 Example:
 ```bash
-# Run with public URI:
+# Run with local OpenAPI file
 java -jar ./target/rama-cli-0.1.0.jar -file ./src/test/resources/OA3OldFiles/api-with-examples.yaml -format openapi
 ```
 
