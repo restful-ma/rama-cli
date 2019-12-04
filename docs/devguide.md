@@ -47,12 +47,17 @@ DataModelRelationship are required if the data schema has something like oneOf, 
 11. Property: A property has its name as a key(the same value that has been used as key in the parameter map), the data Type of the property, the format of the property, a list of SubProperty objects and it can also contain a DataModel object. Properties, which themself contain more properties have to be listed under sub properties as well. Furthermore, a property contains a boolean which defines whether or not this property can be null and the two int values minOccurs and maxOccurs.
 <br> The dataModel of a property is used when the property is defined by a schema that has oneOf, allOf or onlyOne as property.
 
-
-
 ## How to add new parsers ?
 
 To add a new parser, the `Parser.java` class should be extended. The Parser class provides the two functions loadPublicUrl and loadLocalUrl which return a SpecificationFile object. At least one of these functions should be overridden and used as an entry point for the parser. Furthermore the parser has to parse all relevant information of the given api specification into the returned SpecificationFile object. <br>
 Also the `ParserType.java` has to extended with a new ENUM and a new case has to be added to the switch statement
+
+## How to modify existing parsers ?
+
+The tool currently has 3 parsers that are described as follows:
+* [OpenAPI V3](parsers/oapi3.md)
+* [RAML](parsers/raml.md)
+* [WADL](parsers/wadl.md)
 
 ## How to add or modify metrics ?
 To extend the tool with additional metrics, the developer has to implement the IMetric interface. The interface contains the important methods which the implemented metric should have.
