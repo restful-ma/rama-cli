@@ -167,25 +167,9 @@ public class RAMLParser extends Parser {
 			
 			//Fill interal model RequestBody object
 			for (TypeDeclaration body : method.body()) {
-
-				Model.ContentMediaType.Builder contentMediaTypeBuilder = Model.ContentMediaType.newBuilder();
-
-				
-				contentMediaTypeBuilder.setMediaType(body.name());
-				String dataModelName = body.type().replace("[", "").replace("]", "");
-				if (!dataModelName.equals("any")) {
-					try {
-						contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName));
-					} catch (Exception e) {
-						logger.error("Missing data Model: " + dataModelName);
-						logger.error("Parser Type value:" + body.type());
-						logger.error("location" + pathBuilder.getPathName());
-						logger.error(e.getMessage());
-					} 
-				}
-				requestBodyBuilder.putContentMediaTypes(contentMediaTypeBuilder.getMediaType(),contentMediaTypeBuilder.build());
-				contentMediaTypeBuilder.clear();
+				requestBodyBuilder.putContentMediaTypes(body.name(),getContentMediaType(body));
 				methodBuilder.addRequestBodies(requestBodyBuilder.build());
+				requestBodyBuilder.clear();
 			}
 			
 			//Fill interal model Parameter object with query Parameter data
@@ -205,30 +189,8 @@ public class RAMLParser extends Parser {
 
 				responseBuilder.addCode(response.code().value());
 				if (!response.body().isEmpty()) {
-					Model.ContentMediaType.Builder contentMediaTypeBuilder = Model.ContentMediaType.newBuilder();
 					for (TypeDeclaration contentMediaType : response.body()) {
-						contentMediaTypeBuilder.setMediaType(contentMediaType.name());
-						String dataModelName = contentMediaType.type();
-						if (!dataModelName.equals("any")) {
-							if (dataModelName.contains("|")) {
-								dataModelName = dataModelName.split(" | ")[0];
-							}
-							try {
-								if (!dataModelName.contains("[")) {
-									contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName));
-								}else {
-									dataModelName = dataModelName.replace("[", "").replace("]", "");
-									contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName).toBuilder().setDataType(Model.DataType.ARRAY).build());	
-								}
-							} catch (Exception e) {
-								logger.error("Missing data Model: " + dataModelName);
-								logger.error(pathBuilder.getPathName());
-								logger.error(response.code().value());
-								logger.error(e.getMessage());
-							} 
-						}
-						responseBuilder.putContentMediaTypes(contentMediaType.name(), contentMediaTypeBuilder.build());
-						contentMediaTypeBuilder.clear();
+						responseBuilder.putContentMediaTypes(contentMediaType.name(), getContentMediaType(contentMediaType));
 					}
 				}
 
@@ -473,5 +435,38 @@ public class RAMLParser extends Parser {
 			}
 		}
 		return parameterBuilder.build();
+	}
+	
+	/**
+	 * Extract the information for the ContentMedia Type object for the request body and response
+	 * from a java-raml-parser TypeDeclaration  object.
+	 * @param contentMediaType java-raml-parser object that contains the information
+	 * 	for the internal model ContentMediaType
+	 * @return internal model ContentMediaType object
+	 */
+	private Model.ContentMediaType getContentMediaType(TypeDeclaration contentMediaType){
+		Model.ContentMediaType.Builder contentMediaTypeBuilder = Model.ContentMediaType.newBuilder();
+		
+		contentMediaTypeBuilder.setMediaType(contentMediaType.name());
+		String dataModelName = contentMediaType.type();
+		if (!dataModelName.equals("any")) {
+			if (dataModelName.contains("|")) {
+				dataModelName = dataModelName.split(" | ")[0];
+			}
+			try {
+				if (!dataModelName.contains("[")) {
+					contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName));
+				}else {
+					dataModelName = dataModelName.replace("[", "").replace("]", "");
+					contentMediaTypeBuilder.setDataModel(dataModelHashMap.get(dataModelName).toBuilder().setDataType(Model.DataType.ARRAY).build());	
+				}
+			} catch (Exception e) {
+				logger.error("Missing data Model: " + dataModelName);
+				logger.error(e.getMessage());
+			} 
+		}
+	
+		
+		return contentMediaTypeBuilder.build();
 	}
 }
