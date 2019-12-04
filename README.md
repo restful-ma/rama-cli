@@ -1,14 +1,19 @@
 # RAMA CLI
+
+[![Actions Status](https://action-badges.now.sh/restful-ma/rama-cli)](https://github.com/restful-ma/rama-cli/actions)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=restful-ma_rama-cli&metric=alert_status)](https://sonarcloud.io/dashboard?id=restful-ma_rama-cli)
+[![SonarQube Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=restful-ma_rama-cli&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=restful-ma_rama-cli)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=restful-ma_rama-cli&metric=ncloc)](https://sonarcloud.io/dashboard?id=restful-ma_rama-cli)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=restful-ma_rama-cli&metric=coverage)](https://sonarcloud.io/dashboard?id=restful-ma_rama-cli)
+
 The RAMA (RESTful API Metric Analyzer) CLI is a tool that can evaluate the maintainability of RESTful APIs via several structural metrics. These metrics are calculated based on machine-readable API documentation.
 Currently, RAMA can parse the following RESTful API description languages:
 * OpenAPI V3 https://github.com/OAI/OpenAPI-Specification
 * RAML 1.0 https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/
 * WADL https://www.w3.org/Submission/wadl/
 
-RAMA has been developed in several study projects at the [Software Engineering Group](https://www.iste.uni-stuttgart.de/se) of the University of Stuttgart as a Java command-line tool.
-
-RAMA takes the path to a specification file as input and returns a maintainability report with metrics as JSON or PDF.
-The maintainability report consists of general information and  maintainability metrics that are described [here](docs/devguide.md#Metrics).
+RAMA has been developed in several study and research projects at the [Software Engineering Group](https://www.iste.uni-stuttgart.de/se) of the University of Stuttgart as a Java command-line tool. It takes the path to a specification file as input and returns a maintainability report with service interface metrics as JSON or PDF.
+The maintainability report consists of maintainability metrics that are described [here](docs/devguide.md#Metrics).
 
 Example:
 ```bash
@@ -93,16 +98,16 @@ mvn clean test
 ```
 
 ## Command-Line Options
-| Option        | Description   | Required|
-| :-------------|:--------------|:--------|
-| -uri $URI_PATH    | The option -uri is used, if the specification file is located in the web (the uri has to reference directly to the file). | YES* 
-| -file $FILE_PATH  |  The option -file is used, if the OpenAPI specification is located on the local computer. | YES*
-| -format $FORMAT  |  The option -format is used to decide which specification file format should be analysed. Allowed $Format are openapi, raml, wadl | YES
-| -pdf $OUTPUT_PATH |  The option -pdf is used, if the user wants an PDF output. A path must be specified behind which the file is saved. | NO** 
-| -json $OUTPUT_PATH | The option -json is used, if the user wants an JSON output. A path must be specified behind which the file is saved. | NO**
+| Option               | Description                                                                                                     | Required |
+| :------------------- | :-------------------------------------------------------------------------------------------------------------- | :------- |
+| `-uri $URI_PATH`     | Used to analyze a specification file on the web (the URI has to reference the file directly).                   | YES*     |
+| `-file $FILE_PATH`   | Used to analyze a local specification file.                                                                     | YES*     |
+| `-format $FORMAT`    | Used to indicate which specification file format to analyze. Supported values are `openapi`, `raml`, or `wadl`. | YES      |
+| `-pdf $OUTPUT_PATH`  | Used to generate a PDF file report. A path where the file will be saved must be specified.                      | NO**     |
+| `-json $OUTPUT_PATH` | Used to generate a JSON file report. A path where the file will be saved must be specified.                     | NO**     |
 
-*Either a file or a URI has to be specified<br>
-**If no additional output was specified the report will be only displayed on the console. 
+*Either a file or a URI has to be specified as input.<br>
+**If no additional output was specified, the report will only be outputted to the console.
 
 ```bash
 # Run with public URI:
@@ -119,4 +124,4 @@ java -jar ./target/rama-cli-0.1.0.jar -file ./src/test/resources/OA3OldFiles/Cus
 ```
 
 ## How to Contribute
-Descriptions of the architecture, components, and metrics can be found in our [devguide](docs/devguide.md).
+Descriptions of the architecture, components, and metrics can be found in our [developer guide](docs/devguide.md).
