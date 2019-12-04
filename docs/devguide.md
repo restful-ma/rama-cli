@@ -49,13 +49,28 @@ Each parser has to parse a given API specification into the internal model for t
 ## How to add new parsers?
 To add a new parser, create a new class that inherits from the abstract `Parser.java` class. The `Parser` class provides the two methods `loadPublicUrl` and `loadLocalUrl`, which return a `SpecificationFile` object. At least one of these methods should be overridden and used as an entry point for the parser. Furthermore, the `Parser` has to parse all relevant information of the given API specification into the returned SpecificationFile object. Lastly, the `ParserType.java` has to extended with a new `ENUM` and a new `case` has to be added to the `switch` statement.
 
-## How to add or modify metrics ?
+## How are existing parsers implemented and how could they be modified?
+
+The tool currently has 3 parsers that are described as follows:
+* [OpenAPI V3](parsers/oapi3.md)
+* [RAML](parsers/raml.md)
+* [WADL](parsers/wadl.md)
+
+## How to add or modify metrics?
 To extend the tool with additional metrics, create a new class that implements the `IMetric` interface. The interface contains all methods expected by the tool. JUnit tests for new metrics should also be implemented and all required specification files for a specific metric test should be copied in a new `src/test/resources/metrics/...` folder so that it is easier to maintain metrics.
 
 In order to use the available web-app-api project as a backend for the Vue.js frontend, the developer has to make sure that each new metric also has an `ini` file in the `src\main\resources\metric-ini` folder. Four keys for the `[thresholds]` section and one for the `[colorDistribution]` section are expected. In `[thresholds]`, set the keys for the absolute color scheme used in the Vue.js frontend. The lower and upper bound of the colors red and green are to be determined. The `boolean` key `maxGreen` in `[colorDistribution]` determines if the highest value is presented green and the lowest value is presented red or vice versa.
 
 ## How to extend the internal API model?
-TODO
+
+To modify the internal model the ProtoBuf file in `src/main/proto` has to be adjusted. While new properties can simply be inserted, new classes have to be defined as a new message. The [official language guide](https://developers.google.com/protocol-buffers/docs/proto3) is a more elaborate starting point to familiarize yourself with ProtoBuf. Currently the proto sources have to be compiled manually, which is done by invoking the [Protocol Compiler](https://developers.google.com/protocol-buffers/docs/downloads.html) as follows:
+```
+protoc --proto_path=IMPORT_PATH\src\main\proto --java_out=DST_DIR\src\main\java model.proto
+```
+At a later point this build process should probably be automated via maven.
+The generated Java class holds `Builder` factories for all defined messages with the appropriate getters and setters. After an object has been build, it has to be casted back to a builder to allow for further modifications. The [official tutorial](https://developers.google.com/protocol-buffers/docs/javatutorial) is more exhaustive.
+
+It is strongly advised to check all existing metrics for needed adjustments and especially incorporate the updated model into all implemented parsers. This advice stands regardless of if the fact, if made changes technically necessitate adjustments of either parsers or metrics. Only this assiduous approach maintains the correctness of calculated metrics.
 
 ## Metrics
 The tool currently has 10 metrics that are described as follows:
