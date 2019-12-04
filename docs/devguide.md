@@ -61,7 +61,15 @@ JUnit-test for new metrics should be implemented and all required specification 
 In order to use the also available web-app-api project as a backend for the Vue JS frontend, the developer has to make sure that each new metric also has an ini file in the metric-ini folder. Expected are four keys for the section "thresholds" and one key for the section "colorDistribution". In thresholds the developer sets the keys for the absolute color scheme used in the Vue JS frontend. The lower and upper bound of the colors red and green are to be determined. Also, the boolean key "maxGreen" in the section "colorDistribution" determines if the highest value is presented green and the lowest value is presented red or vice versa in the relative color scheme used in the Vue JS frontend.
 
 ## How to extend the internal API model ?
-TODO
+
+To modify the internal model the ProtoBuf file in `src/main/proto` has to be adjusted. While new properties can simply be inserted, new classes have to be definied as a new message. The [official language guide](https://developers.google.com/protocol-buffers/docs/proto3) is a more elaborate starting point to familiarize yourself with ProtoBuf. Currently the proto sources have to be compiled manually, which is done by invoking the [Protocol Compiler](https://developers.google.com/protocol-buffers/docs/downloads.html) as follows:
+```
+protoc --proto_path=IMPORT_PATH\src\main\proto --java_out=DST_DIR\src\main\java model.proto
+```
+At a later point this build process should probably be automated via maven.
+The generated Java class holds `Builder` factories for all definied messages with the appropiate getters and setters. After an object has been build, it has to be casted back to a builder to allow for further modifications. The [official tutorial](https://developers.google.com/protocol-buffers/docs/javatutorial) is more exhaustive.
+
+It is strongly advised to check all existing metrics for needed adjustments and especially incorporate the updated model into all implemented parsers. This advice stands regardless of if the fact, if made changes technically necessitate adjustments of either parsers or metrics. Only this assiduous approach maintains the correctness of calculated metrics.
 
 ## Metrics
 The tool currently has 10 metrics that are described as follows:
