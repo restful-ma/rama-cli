@@ -325,7 +325,7 @@ public class RAMLParser extends Parser {
 					propertyBuilder.setType(Model.DataType.OBJECT);
 				}
 				if (!type.equals("date")&& !type.equals("dateTime") && !type.equals("time") && !type.equals("base64Binary")) {
-					String stringArray[] = type.split(":");
+					String[] stringArray = type.split(":");
 					try {
 						Model.DataModel referenzedModel = dataModelHashMap.get(stringArray[stringArray.length - 1]);
 						propertyBuilder.putAllSubProperties(referenzedModel.getPropertiesMap()); // add Properties
@@ -444,8 +444,7 @@ public class RAMLParser extends Parser {
 			builder = factory.newDocumentBuilder();
 
 			// Parse the content to Document object
-			Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
-			return doc;
+			return builder.parse(new InputSource(new StringReader(xmlString)));
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage());
@@ -454,7 +453,7 @@ public class RAMLParser extends Parser {
 	}
 	
 	/**
-	 * Extract internal model Paramter object from the java-raml-parser paramter object
+	 * Extract internal model Parameter object from the java-raml-parser paramter object
 	 * @param parameter java-raml-parser paramter object.
 	 * @return internal model Parameter object.
 	 */
@@ -468,14 +467,9 @@ public class RAMLParser extends Parser {
 			if (containsDataType(parameter.type().toUpperCase().toUpperCase())) {
 				parameterBuilder.setType(Model.DataType.valueOf(parameter.type().toUpperCase()));
 			} else {
-				if (parameter.type().toUpperCase().equals("NUMBER")) {
+				if (parameter.type().equalsIgnoreCase("NUMBER")) {
 					parameterBuilder.setType(Model.DataType.INTEGER);
 				}
-			}
-			try {
-			} catch (Exception e) {
-				e.printStackTrace();
-				logger.error(e.getMessage());
 			}
 		}
 		return parameterBuilder.build();
