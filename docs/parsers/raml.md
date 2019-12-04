@@ -1,1 +1,3 @@
+# RAML Parser
+
 The RAML parser was implemented using the [raml-java-parser](https://github.com/raml-org/raml-java-parser) to parse the API specification into Java objects. These objects are then parsed by the RAML parser into the internal model. Using this method, most of the to us relevant parts could be parsed within a single step by simply calling the getName() or similar functions depending on the required information. This was however not possible for the properties of the request bodies and the responses. To parse this information we had to parse the XMLSchema data that the raml-java-parser provides for all objects. This added an additional step into the parsing process of the properties.
