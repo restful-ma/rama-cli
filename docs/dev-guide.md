@@ -80,7 +80,7 @@ The tool currently has 10 metrics that are described as follows:
 * [Biggest Root Coverage (BRC)](metrics/BiggestrootCoverage.md)
 * [Data Weight (DW)](metrics/DataWeight.md)
 * [Distinct Message Ratio (DMR)](metrics/DistinctMessageRatio.md)
-* [Lack of Message Level Cohesion (LoMC)](metrics/LackOfMessageLevelCohesion.md)
+* [Lack of Message Level Cohesion (LoCmsg)](metrics/LackOfMessageLevelCohesion.md)
 * [Longest Path (LP)](metrics/LongestPath.md)
 * [Number of Root Resources (NOR)](metrics/NumberOfRoots)
 * [Service Interface Data Cohesion (SIDC)](metrics/ServiceInterfaceDataCohesion.md)
