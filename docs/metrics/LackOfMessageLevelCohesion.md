@@ -23,7 +23,7 @@ After that the similarity between operations is calculated with the formula:
 
 Finally, for each possible operation pair the following formula is used, whereby the numberOfPairs is the number of all possible operation pairs. The numberOfPairs can be calculated with the binomial coefficient:
 ![Number of Pairs formula](LoCmsgNumberOfPairs.png)
-![LoCmsg formula](LoCmsgFormula.PNG)
+![LoCmsg formula](LoCmsgFormula.png)
 
 
 ## Example calculation

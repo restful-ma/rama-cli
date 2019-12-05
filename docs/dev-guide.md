@@ -77,7 +77,7 @@ It is strongly advised to check all existing metrics for needed adjustments and 
 The tool currently has 10 metrics that are described as follows:
 * [Argument per Operation (APO)](metrics/ArgumentsPerOperation.md)
 * [Average Path Length (APL)](metrics/AveragePathLength.md)
-* [Biggest Root Coverage (BRC)](metrics/BiggestrootCoverage.md)
+* [Biggest Root Coverage (BRC)](metrics/BiggestRootCoverage.md)
 * [Data Weight (DW)](metrics/DataWeight.md)
 * [Distinct Message Ratio (DMR)](metrics/DistinctMessageRatio.md)
 * [Lack of Message Level Cohesion (LoCmsg)](metrics/LackOfMessageLevelCohesion.md)
