@@ -2,9 +2,9 @@
 
 ## Overview
 
-The ArgumentsPerOperation metric (APO) represents the average amount of operation arguments for a service. For its calculation, the summed up number of arguments for all service operations is divided by the total number of operations. Each path parameter counts as one argument. Moreover, each request and response body count as one argument.
+The ArgumentsPerOperation metric (APO) represents the average amount of operation arguments for a service. For its calculation, the summed up number of arguments for all service operations is divided by the total number of operations. Each path parameter counts as one argument. Moreover, each request body counts as one argument.
 
-The service shown below has one POST operation with three arguments: one path variable (`pathVariable`), one request body, and two response bodies (only a maximum of one response body is taken into account).
+The service shown below has one POST operation with two arguments: one path variable (`pathVariable`), one request body.
 
 ```yaml
 /pets/{pathVariable}:
@@ -41,9 +41,9 @@ The service shown below has one POST operation with three arguments: one path va
 							$ref: '#/components/schemas/Error'
 ```
 
-To calculate APO, we divide the count of these arguments (3) by the number of operations (1):
+To calculate APO, we divide the count of these arguments (2) by the number of operations (1):
 
-`APO = 3 / 1 = 3`
+`APO = 2 / 1 = 2`
 
 ## Source
 
