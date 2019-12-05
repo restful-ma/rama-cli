@@ -3,7 +3,7 @@ name: Maven CI Build
 on: [push]
 
 jobs:
-  build:
+  build-test-sonar:
     runs-on: ubuntu-latest
     steps:
     - name: Setup Java
