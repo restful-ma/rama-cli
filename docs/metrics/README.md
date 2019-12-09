@@ -8,6 +8,6 @@ The RAMA CLI currently implements the following list of service-based maintainab
 * [Distinct Message Ratio (DMR)](./DistinctMessageRatio.md)
 * [Lack of Message Level Cohesion (LoC<sub>msg</sub>)](./LackOfMessageLevelCohesion.md)
 * [Longest Path (LP)](./LongestPath.md)
-* [Number of Root Resources (NOR)](./NumberOfRoots)
+* [Number of Roots (NOR)](./NumberOfRoots.md)
 * [Service Interface Data Cohesion (SIDC)](./ServiceInterfaceDataCohesion.md)
 * [Weighted Service Interface Count (WSIC)](./WeightedServiceInterfaceCount.md)

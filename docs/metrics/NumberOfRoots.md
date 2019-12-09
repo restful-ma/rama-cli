@@ -1,4 +1,4 @@
-# Number of Root Resources (NOR)
+# Number of Roots (NOR)
 The `Number Of Roots` metric represents the count of API root resources. A root resource is defined as a path with a distinct root element.
 
 The example shown below has three paths. Two of them start with `github` and one starts with `gitlab`, i.e. there are two root resources: `NOR = 2`
