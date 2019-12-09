@@ -13,7 +13,7 @@ Currently, RAMA can parse the following RESTful API description languages:
 * WADL https://www.w3.org/Submission/wadl/
 
 RAMA has been developed in several study and research projects at the [Software Engineering Group](https://www.iste.uni-stuttgart.de/se) of the University of Stuttgart as a Java command-line tool. It takes the path to a specification file as input and returns a maintainability report with service interface metrics as JSON or PDF.
-The maintainability report consists of maintainability metrics that are described [here](docs/devguide.md#Metrics).
+The maintainability report consists of maintainability metrics that are described [here](docs/metrics/README.md).
 
 Example:
 ```bash

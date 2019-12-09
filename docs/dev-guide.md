@@ -74,17 +74,7 @@ The generated Java class holds `Builder` factories for all defined messages with
 It is strongly advised to check all existing metrics for needed adjustments and especially incorporate the updated model into all implemented parsers. Changes to the internal data model technically necessitate adjustments to either parsers or metrics. Only a rigorous checking will maintain the correctness of calculated metrics.
 
 ## Metrics
-The tool currently has 10 metrics that are described as follows:
-* [Argument per Operation (APO)](metrics/ArgumentsPerOperation.md)
-* [Average Path Length (APL)](metrics/AveragePathLength.md)
-* [Biggest Root Coverage (BRC)](metrics/BiggestRootCoverage.md)
-* [Data Weight (DW)](metrics/DataWeight.md)
-* [Distinct Message Ratio (DMR)](metrics/DistinctMessageRatio.md)
-* [Lack of Message Level Cohesion (LoCmsg)](metrics/LackOfMessageLevelCohesion.md)
-* [Longest Path (LP)](metrics/LongestPath.md)
-* [Number of Root Resources (NOR)](metrics/NumberOfRoots)
-* [Service Interface Data Cohesion (SIDC)](metrics/ServiceInterfaceDataCohesion.md)
-* [Weighted Service Interface Count (WSIC)](metrics/WeightedServiceInterfaceCount.md)
+The implemented metrics are documented [here](./metrics/README.md).
 
 ## Other Tools
 TODO

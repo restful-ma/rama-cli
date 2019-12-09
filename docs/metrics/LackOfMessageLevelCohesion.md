@@ -1,21 +1,16 @@
-# Lack of Message-Level Cohesion (LoCmsg)
+# Lack of Message-Level Cohesion (LoC<sub>msg</sub>)
 
 ## Overview
 
-The Lack of Message-Level Cohesion (LoCmsg) represents a measure for the cohesion inside an interface. 
-The LoCmsg uses the similarity between two operations by comparing their `input data` with each other and by comparing their `output data` with each other to calculate the cohesion.
+The Lack of Message-Level Cohesion (LoC<sub>msg</sub>) represents a measure for the cohesion inside an interface. 
+The LoC<sub>msg</sub> uses the similarity between two operations by comparing their `input data` with each other and by comparing their `output data` with each other to calculate the cohesion.
 
-* `input data` is the combination of path parameters, query parameters and the request body. The input
-data can be seen as a single data object which has path parameters, query parameters and
-the request body as sub-properties.
-
-* `output data` is the combination of all responses. The output data can be seen as a single data
-object which has all responses as sub-properties.
+* `input data` is the combination of path parameters, query parameters and the request body. The input data can be seen as a single data object which has path parameters, query parameters and the request body as sub-properties.
+* `output data` is the combination of all responses. The output data can be seen as a single data object which has all responses as sub-properties.
 
 The similarity of `input data` between two operations and `output data` between two operations is calculated with:
 
 * `inputDataSimilarity  = commonInputDataProperties / unionOfAllInputDataProperties`
-
 * `outputDataSimilarity  = commonOutDataProperties / unionOfAllOutDataProperties`
 
 After that the similarity between operations is calculated with the formula:
@@ -23,17 +18,15 @@ After that the similarity between operations is calculated with the formula:
 
 Finally, for each possible operation pair the following formula is used, whereby the numberOfPairs is the number of all possible operation pairs. The numberOfPairs can be calculated with the binomial coefficient:
 ![Number of Pairs formula](LoCmsgNumberOfPairs.png)
-![LoCmsg formula](LoCmsgFormula.png)
+
+![LoC<sub>msg</sub> formula](LoCmsgFormula.png)
 
 
 ## Example calculation
 This is an example calculation for the OpenAPI V3 specification that is listed below.
 ![Example Calculation](LoCmsgExample.png)
 
-
-
-
-The fictional OpenAPI V3 specification below describes two paths each containing one operation.
+The fictional OpenAPI specification below describes two paths each containing one operation.
 ```yaml
 paths:
   /pets:
