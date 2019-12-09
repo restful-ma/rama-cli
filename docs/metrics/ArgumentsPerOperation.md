@@ -1,5 +1,5 @@
 # Arguments per Operation (APO)
-The ArgumentsPerOperation metric (APO) represents the average amount of operation arguments for a service. For its calculation, the summed up number of arguments for all service operations is divided by the total number of operations. Each path parameter counts as one argument. Moreover, each request body counts as one argument.
+The `Arguments per Operation` metric (APO) represents the average amount of operation arguments for a service. For its calculation, the summed up number of arguments for all service operations is divided by the total number of operations. Each path parameter counts as one argument. Moreover, each request body counts as one argument.
 
 The service shown below has one POST operation with two arguments: one path variable (`pathVariable`), one request body.
 

@@ -1,5 +1,5 @@
 # BiggestRootCoverage (BRC)
-The BiggestRootCoverage metric (BRC) represents the percentage of operations that are located under the largest root path element, i.e. under the root path with most operations. The value range of BRC is between `0` and `1`. To calculate it, the number of operations from the root resource with most operations is divided by the API's total number of operations. If an API only has one root path, the value of BRC is therefore `1`, because this root path will contain all operations.
+The `Biggest Root Coverage` metric (BRC) represents the percentage of operations that are located under the largest root path element, i.e. under the root path with most operations. The value range of BRC is between `0` and `1`. To calculate it, the number of operations from the root resource with most operations is divided by the API's total number of operations. If an API only has one root path, the value of BRC is therefore `1`, because this root path will contain all operations.
 
 The example shown below has three paths. Two of them start with `github` and one starts with `gitlab`, i.e. there are two root paths. Two operations belong to the root path `github`, one belongs two the root path `gitlab`.
 

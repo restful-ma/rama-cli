@@ -1,6 +1,6 @@
 # Lack of Message-Level Cohesion (LoC<sub>msg</sub>)
-The Lack of Message-Level Cohesion (LoC<sub>msg</sub>) represents a measure for the cohesion inside an interface. 
-The LoC<sub>msg</sub> uses the similarity between two operations by comparing their `input data` with each other and by comparing their `output data` with each other to calculate the cohesion.
+The `Lack of Message-Level Cohesion` (LoC<sub>msg</sub>) represents a measure for the cohesion inside an interface. 
+LoC<sub>msg</sub> uses the similarity between two operations by comparing their `input data` with each other and by comparing their `output data` with each other to calculate the cohesion.
 
 * `input data` is the combination of path parameters, query parameters and the request body. The input data can be seen as a single data object which has path parameters, query parameters and the request body as sub-properties.
 * `output data` is the combination of all responses. The output data can be seen as a single data object which has all responses as sub-properties.

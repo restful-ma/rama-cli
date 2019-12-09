@@ -1,6 +1,5 @@
 # Data Weight (DW)
-
-The DataWeight metric represents a measure for the complexity of data types in an interface. It is the count of all path parameters and all parameters in request and response bodies within all operations of an interface.
+The `Data Weight` metric represents a measure for the complexity of data types in an interface. It is the count of all path parameters and all parameters in request and response bodies within all operations of an interface.
 
 The POST operation shown below has no path parameters to take into account. It has, however a request and a response body.
 

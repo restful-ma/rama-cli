@@ -1,5 +1,5 @@
 # Distinct Message Ratio (DMR)
-The Distinct Message Ratio metric (DMR) represents a measure for the complexity/cohesion of data types in an interface. This metric is significantly modified from the original version [1]. It is the ratio between distinct messages and all messages that are inside an interface.
+The `Distinct Message Ratio` metric (DMR) represents a measure for the complexity/cohesion of data types in an interface. This metric is significantly modified from the original version [1]. It is the ratio between distinct messages and all messages that are inside an interface.
 Messages are either: 
  * An `Input` message is the combination of path parameters, query parameters and the request body.
 The input data can be seen as a single data object which has path parameters, query parameters

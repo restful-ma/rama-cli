@@ -1,5 +1,5 @@
 # Longest Path (LP)
-Similar to the AveragePathLength (APL), the LongestPath metric focuses on the size of the resource paths of an API. Instead of the average length, it represents the maximum length, i.e. the longest resource path. Again, the path length is defined by the number of slashes ("/"). Slashes at the end of the path are not counted.
+Similar to `Average Path Length` (APL), the `Longest Path` metric focuses on the size of the resource paths of an API. Instead of the average length, it represents the maximum length, i.e. the longest resource path. Again, the path length is defined by the number of slashes ("/"). Slashes at the end of the path are not counted.
 
 The example shown below has three resource paths, namely `/github/repositories/{username}`, `/github/repositories/{username}/{slug}`, and `/gitlab/repositories/{username}/{slug}`.
 

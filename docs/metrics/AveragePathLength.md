@@ -1,5 +1,5 @@
 # Average Path Length (APL)
-The AveragePathLength metric (APL) represents the average size of resource paths in a RESTful interface. The path length of a single resource is defined by the number of slashes ("/"). Slashes at the end of the path are not counted. All resource path lengths of the RESTful interface are summed up and divided by the total number of resource paths.
+The `Average Path Length` metric (APL) represents the average size of resource paths in a RESTful interface. The path length of a single resource is defined by the number of slashes ("/"). Slashes at the end of the path are not counted. All resource path lengths of the RESTful interface are summed up and divided by the total number of resource paths.
 
 The example shown below has three resource paths, namely `/github/repositories/{username}`, `/github/repositories/{username}/{slug}`, and `/gitlab/repositories/{username}/{slug}`.
 

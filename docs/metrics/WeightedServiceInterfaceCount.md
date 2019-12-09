@@ -1,5 +1,5 @@
 # Weighted Service Interface Count (WSIC)
-The WeightedServiceInterfaceCount metric (WSIC) represents the weighted number of exposed operations in a service interface. The default weight is set to 1. Alternate weighting methods, which need to be validated empirically, can take into consideration the number and the complexity of data types of parameters in each interface. In the default case, WSIC simply returns a count of the number of exposed methods. 
+The `Weighted Service Interface Count` metric (WSIC) represents the weighted number of exposed operations in a service interface. The default weight is set to 1. Alternate weighting methods, which need to be validated empirically, can take into consideration the number and the complexity of data types of parameters in each interface. In the default case, WSIC simply returns a count of the number of exposed methods. 
 
 The greater the number of defined interfaces per service within a SOA solution the more complex a service becomes due to the following factors. 
 - The amount of work required to specify, construct and test every interface on the service increases. 
