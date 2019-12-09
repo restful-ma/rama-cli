@@ -1,7 +1,4 @@
 # Lack of Message-Level Cohesion (LoC<sub>msg</sub>)
-
-## Overview
-
 The Lack of Message-Level Cohesion (LoC<sub>msg</sub>) represents a measure for the cohesion inside an interface. 
 The LoC<sub>msg</sub> uses the similarity between two operations by comparing their `input data` with each other and by comparing their `output data` with each other to calculate the cohesion.
 
@@ -29,71 +26,71 @@ This is an example calculation for the OpenAPI V3 specification that is listed b
 The fictional OpenAPI specification below describes two paths each containing one operation.
 ```yaml
 paths:
-  /pets:
-    get:
-      parameters:
-        - name: limit
-          in: query
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: An array of pets
-          content:
-            application/json:    
-              schema:
-                $ref: "#/components/schemas/Pets"
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
+    /pets:
+        get:
+            parameters:
+                - name: limit
+                  in: query
+                  schema:
+                    type: integer
+            responses:
+                '200':
+                    description: An array of pets
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Pets"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
 
-  /pets/{age}:
-    get:
-      parameters:
-        - name: limit
-          in: query
-          schema:
-            type: integer
-        - name: age
-          in: path
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: An array of pets with specified age
-          content:
-            application/json:    
-              schema:
-                $ref: "#/components/schemas/Pets"
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-     
+    /pets/{age}:
+        get:
+            parameters:
+                - name: limit
+                  in: query
+                  schema:
+                    type: integer
+                - name: age
+                  in: path
+                  required: true
+                  schema:
+                    type: integer
+            responses:
+                '200':
+                    description: An array of pets with specified age
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Pets"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+
 components:
-  schemas:
-    Pet:
-      properties:
-        age:
-          type: integer
-        name:
-          type: string
-     
-    Pets:
-      type: array
-      items:
-        $ref: "#/components/schemas/Pet"
-        
-    Error:
-      properties:
-        message:
-          type: string
+    schemas:
+        Pet:
+            properties:
+                age:
+                    type: integer
+                name:
+                    type: string
+
+        Pets:
+            type: array
+            items:
+                $ref: "#/components/schemas/Pet"
+
+        Error:
+            properties:
+                message:
+                    type: string
 ```
 
 ## Source

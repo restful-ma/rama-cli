@@ -1,7 +1,4 @@
 # Service Interface Data Cohesion (SIDC)
-
-## Overview
-
 The ServiceInterfaceDataCohesion metric (SIDC) quantifies the cohesion of a given service _S_ based on the similarity of data types present in the operations _SO(SI<sub>S</sub>)_ of its service interface _SI<sub>S</sub>_. In particular, SIDC evaluates if service operations have
 
 - common input parameter types

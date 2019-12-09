@@ -1,51 +1,49 @@
 # Data Weight (DW)
 
-## Overview
-
 The DataWeight metric represents a measure for the complexity of data types in an interface. It is the count of all path parameters and all parameters in request and response bodies within all operations of an interface.
 
 The POST operation shown below has no path parameters to take into account. It has, however a request and a response body.
 
 ```yaml
 /pets:
-	post:
-		description: Creates a new pet in the store. Duplicates are allowed
-		operationId: addPet
-		requestBody:
-			description: Pet to add to the store
-			required: true
-			content:
-				application/json:
-					schema:
-						$ref: '#/components/schemas/NewPet'
-		responses:
-			'200':
-				description: pet response
-				content:
-					application/json:
-						schema:
-							$ref: '#/components/schemas/Pet'
+    post:
+        description: Creates a new pet in the store. Duplicates are allowed
+        operationId: addPet
+        requestBody:
+            description: Pet to add to the store
+            required: true
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/NewPet'
+        responses:
+            '200':
+                description: pet response
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Pet'
 
 components:
-	schemas:
-		Pet:
-			allOf:
-				- $ref: '#/components/schemas/NewPet'
-				- required:
-				- id
-			  	 properties:
-					id:
-						type: integer
-						format: int64
+    schemas:
+        Pet:
+            allOf:
+                - $ref: '#/components/schemas/NewPet'
+                - required:
+                    - id
+                properties:
+                    id:
+                        type: integer
+                        format: int64
 
-		NewPet:
-			required:
-				- name
-			properties:
-				name:
-					type: string
-				tag:
-					type: string
+        NewPet:
+            required:
+                - name
+            properties:
+                name:
+                    type: string
+                tag:
+                    type: string
 
 ```
 
