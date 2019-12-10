@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -24,6 +25,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
+
 
 import restful.api.metric.analyzer.cli.model.generated.internal.Model;
 
@@ -398,17 +400,18 @@ public class RAMLParser extends Parser {
 	private static Document convertStringToXMLDocument(String xmlString) {
 		// Parser that produces DOM object trees from XML content
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
-		// API to obtain DOM Document instance
-		DocumentBuilder builder = null;
 		try {
+			factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+			
+			// API to obtain DOM Document instance
+			DocumentBuilder builder = null;
 			// Create DocumentBuilder with default configuration
 			builder = factory.newDocumentBuilder();
 
 			// Parse the content to Document object
-			return builder.parse(new InputSource(new StringReader(xmlString)));
+			Document doc = builder.parse(new InputSource(new StringReader(xmlString)));
+			return doc;
 		} catch (Exception e) {
-			e.printStackTrace();
 			logger.error(e.getMessage());
 		}
 		return null;
