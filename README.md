@@ -18,12 +18,12 @@ The maintainability report consists of maintainability metrics that are describe
 Example:
 ```bash
 # Run with local OpenAPI file
-java -jar ./target/rama-cli-0.1.1.jar -file ./src/test/resources/OA3OldFiles/api-with-examples.yaml -format openapi
+java -jar ./target/rama-cli-0.1.2.jar -file ./src/test/resources/OA3OldFiles/api-with-examples.yaml -format openapi
 ```
 
 This produces the following output:
 ```bash
-$ java -jar ./target/rama-cli-0.1.1.jar -file ./src/test/resources/OA3OldFiles/api-with-examples.yaml -format openapi
+$ java -jar ./target/rama-cli-0.1.2.jar -file ./src/test/resources/OA3OldFiles/api-with-examples.yaml -format openapi
 Dec 04, 2019 11:20:43 AM restful.api.metric.analyzer.cli.Main main
 INFO: Application started with arguments: -file|./src/test/resources/OA3OldFiles/api-with-examples.yaml|-format|openapi
 Dec 04, 2019 11:20:44 AM org.reflections.Reflections scan
@@ -111,17 +111,17 @@ mvn clean test
 
 ```bash
 # Run with public URI:
-java -jar ./target/rama-cli-0.1.1.jar -uri http://url-to-swagger-file.com -pdf path/to/file.pdf -json path/to/file.json -format openapi
+java -jar ./target/rama-cli-0.1.2.jar -uri http://url-to-swagger-file.com -pdf path/to/file.pdf -json path/to/file.json -format openapi
 
 # Run with local file:
-java -jar ./target/rama-cli-0.1.1.jar -file path/to/file.yaml -pdf path/to/file.pdf -json path/to/file.json -format openapi
+java -jar ./target/rama-cli-0.1.2.jar -file path/to/file.yaml -pdf path/to/file.pdf -json path/to/file.json -format openapi
 
 # Run petstore example with public URL:
-java -jar ./target/rama-cli-0.1.1.jar -uri https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore-expanded.yaml -format openapi
+java -jar ./target/rama-cli-0.1.2.jar -uri https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore-expanded.yaml -format openapi
 
 # Run customer-srv example with local URL:
-java -jar ./target/rama-cli-0.1.1.jar -file ./src/test/resources/OA3OldFiles/CustomerSrv-openapi.yaml -format openapi
+java -jar ./target/rama-cli-0.1.2.jar -file ./src/test/resources/OA3OldFiles/CustomerSrv-openapi.yaml -format openapi
 ```
 
 ## How to Contribute
-Descriptions of the architecture, components, and metrics can be found in our [developer guide](docs/dev-guide.md).
+Descriptions of the architecture, components, and metrics can be found in our [developer guide](docs/README.md).

@@ -4,7 +4,7 @@
     <name>RESTful Api Metric Analyzer CLI</name>
     <groupId>restful-ma</groupId>
     <artifactId>rama-cli</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>jar</packaging>
     <organization>
         <name>University of Stuttgart / ISTE / SE</name>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>org.raml</groupId>
             <artifactId>raml-parser-2</artifactId>
-            <version>1.0.41</version>
+            <version>1.0.28</version>
         </dependency>
 
         <!-- logging -->
