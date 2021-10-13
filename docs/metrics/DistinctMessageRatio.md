@@ -6,7 +6,7 @@ The input data can be seen as a single data object which has path parameters, qu
 and request body as sub-properties.
 * An `Output` message is a single response of an operation.
 
-In the example below are three messages from GET /pets
+In the example below are 3 messages from GET /pets
 * {limit}
 * {$ ref: "#/ components/schemas/Pets"}
 * {$ ref:"#/ components/schemas/ Error"}
