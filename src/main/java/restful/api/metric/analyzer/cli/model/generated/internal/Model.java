@@ -65,6 +65,8 @@ public final class Model {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -72,6 +74,10 @@ public final class Model {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static SpecificationFormat forNumber(int value) {
       switch (value) {
         case 0: return API_BLUEPRINT;
@@ -96,6 +102,10 @@ public final class Model {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -221,6 +231,8 @@ public final class Model {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -228,6 +240,10 @@ public final class Model {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static HttpMethod forNumber(int value) {
       switch (value) {
         case 0: return CONNECT;
@@ -257,6 +273,10 @@ public final class Model {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -382,6 +402,8 @@ public final class Model {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -389,6 +411,10 @@ public final class Model {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static DataType forNumber(int value) {
       switch (value) {
         case 0: return STRING;
@@ -418,6 +444,10 @@ public final class Model {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -527,6 +557,8 @@ public final class Model {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -534,6 +566,10 @@ public final class Model {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static ParameterLocation forNumber(int value) {
       switch (value) {
         case 0: return COOKIE;
@@ -561,6 +597,10 @@ public final class Model {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -646,6 +686,8 @@ public final class Model {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -653,6 +695,10 @@ public final class Model {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static DataModelRelationShip forNumber(int value) {
       switch (value) {
         case 0: return All;
@@ -677,6 +723,10 @@ public final class Model {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -717,30 +767,36 @@ public final class Model {
 
     /**
      * <code>string filePath = 1;</code>
+     * @return The filePath.
      */
     java.lang.String getFilePath();
     /**
      * <code>string filePath = 1;</code>
+     * @return The bytes for filePath.
      */
     com.google.protobuf.ByteString
         getFilePathBytes();
 
     /**
      * <code>string title = 2;</code>
+     * @return The title.
      */
     java.lang.String getTitle();
     /**
      * <code>string title = 2;</code>
+     * @return The bytes for title.
      */
     com.google.protobuf.ByteString
         getTitleBytes();
 
     /**
      * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
+     * @return Whether the specificationDescriptor field is set.
      */
     boolean hasSpecificationDescriptor();
     /**
      * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
+     * @return The specificationDescriptor.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor getSpecificationDescriptor();
     /**
@@ -750,10 +806,12 @@ public final class Model {
 
     /**
      * <code>string apiVersion = 4;</code>
+     * @return The apiVersion.
      */
     java.lang.String getApiVersion();
     /**
      * <code>string apiVersion = 4;</code>
+     * @return The bytes for apiVersion.
      */
     com.google.protobuf.ByteString
         getApiVersionBytes();
@@ -785,7 +843,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.SpecificationFile}
    */
-  public  static final class SpecificationFile extends
+  public static final class SpecificationFile extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.SpecificationFile)
       SpecificationFileOrBuilder {
@@ -911,7 +969,9 @@ public final class Model {
     private volatile java.lang.Object filePath_;
     /**
      * <code>string filePath = 1;</code>
+     * @return The filePath.
      */
+    @java.lang.Override
     public java.lang.String getFilePath() {
       java.lang.Object ref = filePath_;
       if (ref instanceof java.lang.String) {
@@ -926,7 +986,9 @@ public final class Model {
     }
     /**
      * <code>string filePath = 1;</code>
+     * @return The bytes for filePath.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFilePathBytes() {
       java.lang.Object ref = filePath_;
@@ -945,7 +1007,9 @@ public final class Model {
     private volatile java.lang.Object title_;
     /**
      * <code>string title = 2;</code>
+     * @return The title.
      */
+    @java.lang.Override
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
       if (ref instanceof java.lang.String) {
@@ -960,7 +1024,9 @@ public final class Model {
     }
     /**
      * <code>string title = 2;</code>
+     * @return The bytes for title.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTitleBytes() {
       java.lang.Object ref = title_;
@@ -979,19 +1045,24 @@ public final class Model {
     private restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor specificationDescriptor_;
     /**
      * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
+     * @return Whether the specificationDescriptor field is set.
      */
+    @java.lang.Override
     public boolean hasSpecificationDescriptor() {
       return specificationDescriptor_ != null;
     }
     /**
      * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
+     * @return The specificationDescriptor.
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor getSpecificationDescriptor() {
       return specificationDescriptor_ == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor.getDefaultInstance() : specificationDescriptor_;
     }
     /**
      * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptorOrBuilder getSpecificationDescriptorOrBuilder() {
       return getSpecificationDescriptor();
     }
@@ -1000,7 +1071,9 @@ public final class Model {
     private volatile java.lang.Object apiVersion_;
     /**
      * <code>string apiVersion = 4;</code>
+     * @return The apiVersion.
      */
+    @java.lang.Override
     public java.lang.String getApiVersion() {
       java.lang.Object ref = apiVersion_;
       if (ref instanceof java.lang.String) {
@@ -1015,7 +1088,9 @@ public final class Model {
     }
     /**
      * <code>string apiVersion = 4;</code>
+     * @return The bytes for apiVersion.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getApiVersionBytes() {
       java.lang.Object ref = apiVersion_;
@@ -1035,12 +1110,14 @@ public final class Model {
     /**
      * <code>repeated .internal.Api apis = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<restful.api.metric.analyzer.cli.model.generated.internal.Model.Api> getApisList() {
       return apis_;
     }
     /**
      * <code>repeated .internal.Api apis = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends restful.api.metric.analyzer.cli.model.generated.internal.Model.ApiOrBuilder> 
         getApisOrBuilderList() {
       return apis_;
@@ -1048,18 +1125,21 @@ public final class Model {
     /**
      * <code>repeated .internal.Api apis = 5;</code>
      */
+    @java.lang.Override
     public int getApisCount() {
       return apis_.size();
     }
     /**
      * <code>repeated .internal.Api apis = 5;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Api getApis(int index) {
       return apis_.get(index);
     }
     /**
      * <code>repeated .internal.Api apis = 5;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.ApiOrBuilder getApisOrBuilder(
         int index) {
       return apis_.get(index);
@@ -1079,16 +1159,16 @@ public final class Model {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getFilePathBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filePath_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
       }
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
       }
       if (specificationDescriptor_ != null) {
         output.writeMessage(3, getSpecificationDescriptor());
       }
-      if (!getApiVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, apiVersion_);
       }
       for (int i = 0; i < apis_.size(); i++) {
@@ -1103,17 +1183,17 @@ public final class Model {
       if (size != -1) return size;
 
       size = 0;
-      if (!getFilePathBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filePath_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
       }
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
       }
       if (specificationDescriptor_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getSpecificationDescriptor());
       }
-      if (!getApiVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersion_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, apiVersion_);
       }
       for (int i = 0; i < apis_.size(); i++) {
@@ -1288,7 +1368,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFile.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFile.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.SpecificationFile.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFile.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1491,6 +1571,7 @@ public final class Model {
       private java.lang.Object filePath_ = "";
       /**
        * <code>string filePath = 1;</code>
+       * @return The filePath.
        */
       public java.lang.String getFilePath() {
         java.lang.Object ref = filePath_;
@@ -1506,6 +1587,7 @@ public final class Model {
       }
       /**
        * <code>string filePath = 1;</code>
+       * @return The bytes for filePath.
        */
       public com.google.protobuf.ByteString
           getFilePathBytes() {
@@ -1522,6 +1604,8 @@ public final class Model {
       }
       /**
        * <code>string filePath = 1;</code>
+       * @param value The filePath to set.
+       * @return This builder for chaining.
        */
       public Builder setFilePath(
           java.lang.String value) {
@@ -1535,6 +1619,7 @@ public final class Model {
       }
       /**
        * <code>string filePath = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFilePath() {
         
@@ -1544,6 +1629,8 @@ public final class Model {
       }
       /**
        * <code>string filePath = 1;</code>
+       * @param value The bytes for filePath to set.
+       * @return This builder for chaining.
        */
       public Builder setFilePathBytes(
           com.google.protobuf.ByteString value) {
@@ -1560,6 +1647,7 @@ public final class Model {
       private java.lang.Object title_ = "";
       /**
        * <code>string title = 2;</code>
+       * @return The title.
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -1575,6 +1663,7 @@ public final class Model {
       }
       /**
        * <code>string title = 2;</code>
+       * @return The bytes for title.
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -1591,6 +1680,8 @@ public final class Model {
       }
       /**
        * <code>string title = 2;</code>
+       * @param value The title to set.
+       * @return This builder for chaining.
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -1604,6 +1695,7 @@ public final class Model {
       }
       /**
        * <code>string title = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTitle() {
         
@@ -1613,6 +1705,8 @@ public final class Model {
       }
       /**
        * <code>string title = 2;</code>
+       * @param value The bytes for title to set.
+       * @return This builder for chaining.
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -1631,12 +1725,14 @@ public final class Model {
           restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor, restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor.Builder, restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptorOrBuilder> specificationDescriptorBuilder_;
       /**
        * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
+       * @return Whether the specificationDescriptor field is set.
        */
       public boolean hasSpecificationDescriptor() {
         return specificationDescriptorBuilder_ != null || specificationDescriptor_ != null;
       }
       /**
        * <code>.internal.SpecificationDescriptor specificationDescriptor = 3;</code>
+       * @return The specificationDescriptor.
        */
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor getSpecificationDescriptor() {
         if (specificationDescriptorBuilder_ == null) {
@@ -1746,6 +1842,7 @@ public final class Model {
       private java.lang.Object apiVersion_ = "";
       /**
        * <code>string apiVersion = 4;</code>
+       * @return The apiVersion.
        */
       public java.lang.String getApiVersion() {
         java.lang.Object ref = apiVersion_;
@@ -1761,6 +1858,7 @@ public final class Model {
       }
       /**
        * <code>string apiVersion = 4;</code>
+       * @return The bytes for apiVersion.
        */
       public com.google.protobuf.ByteString
           getApiVersionBytes() {
@@ -1777,6 +1875,8 @@ public final class Model {
       }
       /**
        * <code>string apiVersion = 4;</code>
+       * @param value The apiVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setApiVersion(
           java.lang.String value) {
@@ -1790,6 +1890,7 @@ public final class Model {
       }
       /**
        * <code>string apiVersion = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearApiVersion() {
         
@@ -1799,6 +1900,8 @@ public final class Model {
       }
       /**
        * <code>string apiVersion = 4;</code>
+       * @param value The bytes for apiVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setApiVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -2110,19 +2213,23 @@ public final class Model {
 
     /**
      * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+     * @return The enum numeric value on the wire for specificationFormat.
      */
     int getSpecificationFormatValue();
     /**
      * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+     * @return The specificationFormat.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat getSpecificationFormat();
 
     /**
      * <code>string version = 2;</code>
+     * @return The version.
      */
     java.lang.String getVersion();
     /**
      * <code>string version = 2;</code>
+     * @return The bytes for version.
      */
     com.google.protobuf.ByteString
         getVersionBytes();
@@ -2130,7 +2237,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.SpecificationDescriptor}
    */
-  public  static final class SpecificationDescriptor extends
+  public static final class SpecificationDescriptor extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.SpecificationDescriptor)
       SpecificationDescriptorOrBuilder {
@@ -2222,14 +2329,16 @@ public final class Model {
     private int specificationFormat_;
     /**
      * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+     * @return The enum numeric value on the wire for specificationFormat.
      */
-    public int getSpecificationFormatValue() {
+    @java.lang.Override public int getSpecificationFormatValue() {
       return specificationFormat_;
     }
     /**
      * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+     * @return The specificationFormat.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat getSpecificationFormat() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat getSpecificationFormat() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat result = restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat.valueOf(specificationFormat_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat.UNRECOGNIZED : result;
@@ -2239,7 +2348,9 @@ public final class Model {
     private volatile java.lang.Object version_;
     /**
      * <code>string version = 2;</code>
+     * @return The version.
      */
+    @java.lang.Override
     public java.lang.String getVersion() {
       java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
@@ -2254,7 +2365,9 @@ public final class Model {
     }
     /**
      * <code>string version = 2;</code>
+     * @return The bytes for version.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getVersionBytes() {
       java.lang.Object ref = version_;
@@ -2286,7 +2399,7 @@ public final class Model {
       if (specificationFormat_ != restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat.API_BLUEPRINT.getNumber()) {
         output.writeEnum(1, specificationFormat_);
       }
-      if (!getVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
       }
       unknownFields.writeTo(output);
@@ -2302,7 +2415,7 @@ public final class Model {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, specificationFormat_);
       }
-      if (!getVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
       }
       size += unknownFields.getSerializedSize();
@@ -2453,7 +2566,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.SpecificationDescriptor.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationDescriptor.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2590,21 +2703,27 @@ public final class Model {
       private int specificationFormat_ = 0;
       /**
        * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+       * @return The enum numeric value on the wire for specificationFormat.
        */
-      public int getSpecificationFormatValue() {
+      @java.lang.Override public int getSpecificationFormatValue() {
         return specificationFormat_;
       }
       /**
        * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+       * @param value The enum numeric value on the wire for specificationFormat to set.
+       * @return This builder for chaining.
        */
       public Builder setSpecificationFormatValue(int value) {
+        
         specificationFormat_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+       * @return The specificationFormat.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat getSpecificationFormat() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat result = restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat.valueOf(specificationFormat_);
@@ -2612,6 +2731,8 @@ public final class Model {
       }
       /**
        * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+       * @param value The specificationFormat to set.
+       * @return This builder for chaining.
        */
       public Builder setSpecificationFormat(restful.api.metric.analyzer.cli.model.generated.internal.Model.SpecificationFormat value) {
         if (value == null) {
@@ -2624,6 +2745,7 @@ public final class Model {
       }
       /**
        * <code>.internal.SpecificationFormat specificationFormat = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSpecificationFormat() {
         
@@ -2635,6 +2757,7 @@ public final class Model {
       private java.lang.Object version_ = "";
       /**
        * <code>string version = 2;</code>
+       * @return The version.
        */
       public java.lang.String getVersion() {
         java.lang.Object ref = version_;
@@ -2650,6 +2773,7 @@ public final class Model {
       }
       /**
        * <code>string version = 2;</code>
+       * @return The bytes for version.
        */
       public com.google.protobuf.ByteString
           getVersionBytes() {
@@ -2666,6 +2790,8 @@ public final class Model {
       }
       /**
        * <code>string version = 2;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(
           java.lang.String value) {
@@ -2679,6 +2805,7 @@ public final class Model {
       }
       /**
        * <code>string version = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -2688,6 +2815,8 @@ public final class Model {
       }
       /**
        * <code>string version = 2;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -2759,19 +2888,25 @@ public final class Model {
 
     /**
      * <code>repeated string basePath = 1;</code>
+     * @return A list containing the basePath.
      */
     java.util.List<java.lang.String>
         getBasePathList();
     /**
      * <code>repeated string basePath = 1;</code>
+     * @return The count of basePath.
      */
     int getBasePathCount();
     /**
      * <code>repeated string basePath = 1;</code>
+     * @param index The index of the element to return.
+     * @return The basePath at the given index.
      */
     java.lang.String getBasePath(int index);
     /**
      * <code>repeated string basePath = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the basePath at the given index.
      */
     com.google.protobuf.ByteString
         getBasePathBytes(int index);
@@ -2833,7 +2968,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.Api}
    */
-  public  static final class Api extends
+  public static final class Api extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.Api)
       ApiOrBuilder {
@@ -2950,6 +3085,7 @@ public final class Model {
     private com.google.protobuf.LazyStringList basePath_;
     /**
      * <code>repeated string basePath = 1;</code>
+     * @return A list containing the basePath.
      */
     public com.google.protobuf.ProtocolStringList
         getBasePathList() {
@@ -2957,18 +3093,23 @@ public final class Model {
     }
     /**
      * <code>repeated string basePath = 1;</code>
+     * @return The count of basePath.
      */
     public int getBasePathCount() {
       return basePath_.size();
     }
     /**
      * <code>repeated string basePath = 1;</code>
+     * @param index The index of the element to return.
+     * @return The basePath at the given index.
      */
     public java.lang.String getBasePath(int index) {
       return basePath_.get(index);
     }
     /**
      * <code>repeated string basePath = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the basePath at the given index.
      */
     public com.google.protobuf.ByteString
         getBasePathBytes(int index) {
@@ -3009,6 +3150,7 @@ public final class Model {
      * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
      */
 
+    @java.lang.Override
     public boolean containsPaths(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3017,6 +3159,7 @@ public final class Model {
     /**
      * Use {@link #getPathsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Path> getPaths() {
       return getPathsMap();
@@ -3028,6 +3171,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Path> getPathsMap() {
       return internalGetPaths().getMap();
@@ -3039,6 +3183,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Path getPathsOrDefault(
         java.lang.String key,
@@ -3055,6 +3200,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Path getPathsOrThrow(
         java.lang.String key) {
@@ -3292,7 +3438,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.Api.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.Api.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.Api.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.Api.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3446,6 +3592,7 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @return A list containing the basePath.
        */
       public com.google.protobuf.ProtocolStringList
           getBasePathList() {
@@ -3453,18 +3600,23 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @return The count of basePath.
        */
       public int getBasePathCount() {
         return basePath_.size();
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @param index The index of the element to return.
+       * @return The basePath at the given index.
        */
       public java.lang.String getBasePath(int index) {
         return basePath_.get(index);
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the basePath at the given index.
        */
       public com.google.protobuf.ByteString
           getBasePathBytes(int index) {
@@ -3472,6 +3624,9 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The basePath to set.
+       * @return This builder for chaining.
        */
       public Builder setBasePath(
           int index, java.lang.String value) {
@@ -3485,6 +3640,8 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @param value The basePath to add.
+       * @return This builder for chaining.
        */
       public Builder addBasePath(
           java.lang.String value) {
@@ -3498,6 +3655,8 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @param values The basePath to add.
+       * @return This builder for chaining.
        */
       public Builder addAllBasePath(
           java.lang.Iterable<java.lang.String> values) {
@@ -3509,6 +3668,7 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearBasePath() {
         basePath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -3518,6 +3678,8 @@ public final class Model {
       }
       /**
        * <code>repeated string basePath = 1;</code>
+       * @param value The bytes of the basePath to add.
+       * @return This builder for chaining.
        */
       public Builder addBasePathBytes(
           com.google.protobuf.ByteString value) {
@@ -3565,6 +3727,7 @@ public final class Model {
        * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
        */
 
+      @java.lang.Override
       public boolean containsPaths(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3573,6 +3736,7 @@ public final class Model {
       /**
        * Use {@link #getPathsMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Path> getPaths() {
         return getPathsMap();
@@ -3584,6 +3748,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Path> getPathsMap() {
         return internalGetPaths().getMap();
@@ -3595,6 +3760,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Path getPathsOrDefault(
           java.lang.String key,
@@ -3611,6 +3777,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Path&gt; paths = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Path getPathsOrThrow(
           java.lang.String key) {
@@ -3740,10 +3907,12 @@ public final class Model {
 
     /**
      * <code>string pathName = 1;</code>
+     * @return The pathName.
      */
     java.lang.String getPathName();
     /**
      * <code>string pathName = 1;</code>
+     * @return The bytes for pathName.
      */
     com.google.protobuf.ByteString
         getPathNameBytes();
@@ -3805,7 +3974,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.Path}
    */
-  public  static final class Path extends
+  public static final class Path extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.Path)
       PathOrBuilder {
@@ -3916,7 +4085,9 @@ public final class Model {
     private volatile java.lang.Object pathName_;
     /**
      * <code>string pathName = 1;</code>
+     * @return The pathName.
      */
+    @java.lang.Override
     public java.lang.String getPathName() {
       java.lang.Object ref = pathName_;
       if (ref instanceof java.lang.String) {
@@ -3931,7 +4102,9 @@ public final class Model {
     }
     /**
      * <code>string pathName = 1;</code>
+     * @return The bytes for pathName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPathNameBytes() {
       java.lang.Object ref = pathName_;
@@ -3980,6 +4153,7 @@ public final class Model {
      * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
      */
 
+    @java.lang.Override
     public boolean containsMethods(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3988,6 +4162,7 @@ public final class Model {
     /**
      * Use {@link #getMethodsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Method> getMethods() {
       return getMethodsMap();
@@ -3999,6 +4174,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Method> getMethodsMap() {
       return internalGetMethods().getMap();
@@ -4010,6 +4186,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Method getMethodsOrDefault(
         java.lang.String key,
@@ -4026,6 +4203,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Method getMethodsOrThrow(
         java.lang.String key) {
@@ -4052,7 +4230,7 @@ public final class Model {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getPathNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pathName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pathName_);
       }
       com.google.protobuf.GeneratedMessageV3
@@ -4070,7 +4248,7 @@ public final class Model {
       if (size != -1) return size;
 
       size = 0;
-      if (!getPathNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pathName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pathName_);
       }
       for (java.util.Map.Entry<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Method> entry
@@ -4256,7 +4434,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.Path.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.Path.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.Path.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.Path.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4394,6 +4572,7 @@ public final class Model {
       private java.lang.Object pathName_ = "";
       /**
        * <code>string pathName = 1;</code>
+       * @return The pathName.
        */
       public java.lang.String getPathName() {
         java.lang.Object ref = pathName_;
@@ -4409,6 +4588,7 @@ public final class Model {
       }
       /**
        * <code>string pathName = 1;</code>
+       * @return The bytes for pathName.
        */
       public com.google.protobuf.ByteString
           getPathNameBytes() {
@@ -4425,6 +4605,8 @@ public final class Model {
       }
       /**
        * <code>string pathName = 1;</code>
+       * @param value The pathName to set.
+       * @return This builder for chaining.
        */
       public Builder setPathName(
           java.lang.String value) {
@@ -4438,6 +4620,7 @@ public final class Model {
       }
       /**
        * <code>string pathName = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPathName() {
         
@@ -4447,6 +4630,8 @@ public final class Model {
       }
       /**
        * <code>string pathName = 1;</code>
+       * @param value The bytes for pathName to set.
+       * @return This builder for chaining.
        */
       public Builder setPathNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4494,6 +4679,7 @@ public final class Model {
        * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
        */
 
+      @java.lang.Override
       public boolean containsMethods(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -4502,6 +4688,7 @@ public final class Model {
       /**
        * Use {@link #getMethodsMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Method> getMethods() {
         return getMethodsMap();
@@ -4513,6 +4700,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Method> getMethodsMap() {
         return internalGetMethods().getMap();
@@ -4524,6 +4712,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Method getMethodsOrDefault(
           java.lang.String key,
@@ -4540,6 +4729,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Method&gt; methods = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Method getMethodsOrThrow(
           java.lang.String key) {
@@ -4669,19 +4859,23 @@ public final class Model {
 
     /**
      * <code>.internal.HttpMethod httpMethod = 1;</code>
+     * @return The enum numeric value on the wire for httpMethod.
      */
     int getHttpMethodValue();
     /**
      * <code>.internal.HttpMethod httpMethod = 1;</code>
+     * @return The httpMethod.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod getHttpMethod();
 
     /**
      * <code>string operationId = 2;</code>
+     * @return The operationId.
      */
     java.lang.String getOperationId();
     /**
      * <code>string operationId = 2;</code>
+     * @return The bytes for operationId.
      */
     com.google.protobuf.ByteString
         getOperationIdBytes();
@@ -4811,7 +5005,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.Method}
    */
-  public  static final class Method extends
+  public static final class Method extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.Method)
       MethodOrBuilder {
@@ -4955,14 +5149,16 @@ public final class Model {
     private int httpMethod_;
     /**
      * <code>.internal.HttpMethod httpMethod = 1;</code>
+     * @return The enum numeric value on the wire for httpMethod.
      */
-    public int getHttpMethodValue() {
+    @java.lang.Override public int getHttpMethodValue() {
       return httpMethod_;
     }
     /**
      * <code>.internal.HttpMethod httpMethod = 1;</code>
+     * @return The httpMethod.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod getHttpMethod() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod getHttpMethod() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod result = restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod.valueOf(httpMethod_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod.UNRECOGNIZED : result;
@@ -4972,7 +5168,9 @@ public final class Model {
     private volatile java.lang.Object operationId_;
     /**
      * <code>string operationId = 2;</code>
+     * @return The operationId.
      */
+    @java.lang.Override
     public java.lang.String getOperationId() {
       java.lang.Object ref = operationId_;
       if (ref instanceof java.lang.String) {
@@ -4987,7 +5185,9 @@ public final class Model {
     }
     /**
      * <code>string operationId = 2;</code>
+     * @return The bytes for operationId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getOperationIdBytes() {
       java.lang.Object ref = operationId_;
@@ -5036,6 +5236,7 @@ public final class Model {
      * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsParameters(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -5044,6 +5245,7 @@ public final class Model {
     /**
      * Use {@link #getParametersMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter> getParameters() {
       return getParametersMap();
@@ -5055,6 +5257,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter> getParametersMap() {
       return internalGetParameters().getMap();
@@ -5066,6 +5269,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter getParametersOrDefault(
         java.lang.String key,
@@ -5082,6 +5286,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter getParametersOrThrow(
         java.lang.String key) {
@@ -5103,6 +5308,7 @@ public final class Model {
      *
      * <code>repeated .internal.Response responses = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<restful.api.metric.analyzer.cli.model.generated.internal.Model.Response> getResponsesList() {
       return responses_;
     }
@@ -5113,6 +5319,7 @@ public final class Model {
      *
      * <code>repeated .internal.Response responses = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends restful.api.metric.analyzer.cli.model.generated.internal.Model.ResponseOrBuilder> 
         getResponsesOrBuilderList() {
       return responses_;
@@ -5124,6 +5331,7 @@ public final class Model {
      *
      * <code>repeated .internal.Response responses = 4;</code>
      */
+    @java.lang.Override
     public int getResponsesCount() {
       return responses_.size();
     }
@@ -5134,6 +5342,7 @@ public final class Model {
      *
      * <code>repeated .internal.Response responses = 4;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Response getResponses(int index) {
       return responses_.get(index);
     }
@@ -5144,6 +5353,7 @@ public final class Model {
      *
      * <code>repeated .internal.Response responses = 4;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.ResponseOrBuilder getResponsesOrBuilder(
         int index) {
       return responses_.get(index);
@@ -5154,12 +5364,14 @@ public final class Model {
     /**
      * <code>repeated .internal.RequestBody requestBodies = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBody> getRequestBodiesList() {
       return requestBodies_;
     }
     /**
      * <code>repeated .internal.RequestBody requestBodies = 5;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBodyOrBuilder> 
         getRequestBodiesOrBuilderList() {
       return requestBodies_;
@@ -5167,18 +5379,21 @@ public final class Model {
     /**
      * <code>repeated .internal.RequestBody requestBodies = 5;</code>
      */
+    @java.lang.Override
     public int getRequestBodiesCount() {
       return requestBodies_.size();
     }
     /**
      * <code>repeated .internal.RequestBody requestBodies = 5;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBody getRequestBodies(int index) {
       return requestBodies_.get(index);
     }
     /**
      * <code>repeated .internal.RequestBody requestBodies = 5;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBodyOrBuilder getRequestBodiesOrBuilder(
         int index) {
       return requestBodies_.get(index);
@@ -5201,7 +5416,7 @@ public final class Model {
       if (httpMethod_ != restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod.CONNECT.getNumber()) {
         output.writeEnum(1, httpMethod_);
       }
-      if (!getOperationIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(operationId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, operationId_);
       }
       com.google.protobuf.GeneratedMessageV3
@@ -5229,7 +5444,7 @@ public final class Model {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, httpMethod_);
       }
-      if (!getOperationIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(operationId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, operationId_);
       }
       for (java.util.Map.Entry<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter> entry
@@ -5438,7 +5653,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.Method.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.Method.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.Method.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.Method.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5666,21 +5881,27 @@ public final class Model {
       private int httpMethod_ = 0;
       /**
        * <code>.internal.HttpMethod httpMethod = 1;</code>
+       * @return The enum numeric value on the wire for httpMethod.
        */
-      public int getHttpMethodValue() {
+      @java.lang.Override public int getHttpMethodValue() {
         return httpMethod_;
       }
       /**
        * <code>.internal.HttpMethod httpMethod = 1;</code>
+       * @param value The enum numeric value on the wire for httpMethod to set.
+       * @return This builder for chaining.
        */
       public Builder setHttpMethodValue(int value) {
+        
         httpMethod_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>.internal.HttpMethod httpMethod = 1;</code>
+       * @return The httpMethod.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod getHttpMethod() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod result = restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod.valueOf(httpMethod_);
@@ -5688,6 +5909,8 @@ public final class Model {
       }
       /**
        * <code>.internal.HttpMethod httpMethod = 1;</code>
+       * @param value The httpMethod to set.
+       * @return This builder for chaining.
        */
       public Builder setHttpMethod(restful.api.metric.analyzer.cli.model.generated.internal.Model.HttpMethod value) {
         if (value == null) {
@@ -5700,6 +5923,7 @@ public final class Model {
       }
       /**
        * <code>.internal.HttpMethod httpMethod = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHttpMethod() {
         
@@ -5711,6 +5935,7 @@ public final class Model {
       private java.lang.Object operationId_ = "";
       /**
        * <code>string operationId = 2;</code>
+       * @return The operationId.
        */
       public java.lang.String getOperationId() {
         java.lang.Object ref = operationId_;
@@ -5726,6 +5951,7 @@ public final class Model {
       }
       /**
        * <code>string operationId = 2;</code>
+       * @return The bytes for operationId.
        */
       public com.google.protobuf.ByteString
           getOperationIdBytes() {
@@ -5742,6 +5968,8 @@ public final class Model {
       }
       /**
        * <code>string operationId = 2;</code>
+       * @param value The operationId to set.
+       * @return This builder for chaining.
        */
       public Builder setOperationId(
           java.lang.String value) {
@@ -5755,6 +5983,7 @@ public final class Model {
       }
       /**
        * <code>string operationId = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOperationId() {
         
@@ -5764,6 +5993,8 @@ public final class Model {
       }
       /**
        * <code>string operationId = 2;</code>
+       * @param value The bytes for operationId to set.
+       * @return This builder for chaining.
        */
       public Builder setOperationIdBytes(
           com.google.protobuf.ByteString value) {
@@ -5811,6 +6042,7 @@ public final class Model {
        * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsParameters(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -5819,6 +6051,7 @@ public final class Model {
       /**
        * Use {@link #getParametersMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter> getParameters() {
         return getParametersMap();
@@ -5830,6 +6063,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter> getParametersMap() {
         return internalGetParameters().getMap();
@@ -5841,6 +6075,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter getParametersOrDefault(
           java.lang.String key,
@@ -5857,6 +6092,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Parameter&gt; parameters = 3;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter getParametersOrThrow(
           java.lang.String key) {
@@ -6538,41 +6774,48 @@ public final class Model {
 
     /**
      * <code>string key = 1;</code>
+     * @return The key.
      */
     java.lang.String getKey();
     /**
      * <code>string key = 1;</code>
+     * @return The bytes for key.
      */
     com.google.protobuf.ByteString
         getKeyBytes();
 
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The type.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType();
 
     /**
      * <code>.internal.ParameterLocation location = 3;</code>
+     * @return The enum numeric value on the wire for location.
      */
     int getLocationValue();
     /**
      * <code>.internal.ParameterLocation location = 3;</code>
+     * @return The location.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation getLocation();
 
     /**
      * <code>bool required = 4;</code>
+     * @return The required.
      */
     boolean getRequired();
   }
   /**
    * Protobuf type {@code internal.Parameter}
    */
-  public  static final class Parameter extends
+  public static final class Parameter extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.Parameter)
       ParameterOrBuilder {
@@ -6676,7 +6919,9 @@ public final class Model {
     private volatile java.lang.Object key_;
     /**
      * <code>string key = 1;</code>
+     * @return The key.
      */
+    @java.lang.Override
     public java.lang.String getKey() {
       java.lang.Object ref = key_;
       if (ref instanceof java.lang.String) {
@@ -6691,7 +6936,9 @@ public final class Model {
     }
     /**
      * <code>string key = 1;</code>
+     * @return The bytes for key.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKeyBytes() {
       java.lang.Object ref = key_;
@@ -6710,14 +6957,16 @@ public final class Model {
     private int type_;
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The type.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.valueOf(type_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.UNRECOGNIZED : result;
@@ -6727,14 +6976,16 @@ public final class Model {
     private int location_;
     /**
      * <code>.internal.ParameterLocation location = 3;</code>
+     * @return The enum numeric value on the wire for location.
      */
-    public int getLocationValue() {
+    @java.lang.Override public int getLocationValue() {
       return location_;
     }
     /**
      * <code>.internal.ParameterLocation location = 3;</code>
+     * @return The location.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation getLocation() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation getLocation() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation result = restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation.valueOf(location_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation.UNRECOGNIZED : result;
@@ -6744,7 +6995,9 @@ public final class Model {
     private boolean required_;
     /**
      * <code>bool required = 4;</code>
+     * @return The required.
      */
+    @java.lang.Override
     public boolean getRequired() {
       return required_;
     }
@@ -6763,7 +7016,7 @@ public final class Model {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getKeyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       if (type_ != restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.STRING.getNumber()) {
@@ -6784,7 +7037,7 @@ public final class Model {
       if (size != -1) return size;
 
       size = 0;
-      if (!getKeyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       if (type_ != restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.STRING.getNumber()) {
@@ -6955,7 +7208,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.Parameter.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.Parameter.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7104,6 +7357,7 @@ public final class Model {
       private java.lang.Object key_ = "";
       /**
        * <code>string key = 1;</code>
+       * @return The key.
        */
       public java.lang.String getKey() {
         java.lang.Object ref = key_;
@@ -7119,6 +7373,7 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @return The bytes for key.
        */
       public com.google.protobuf.ByteString
           getKeyBytes() {
@@ -7135,6 +7390,8 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @param value The key to set.
+       * @return This builder for chaining.
        */
       public Builder setKey(
           java.lang.String value) {
@@ -7148,6 +7405,7 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKey() {
         
@@ -7157,6 +7415,8 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @param value The bytes for key to set.
+       * @return This builder for chaining.
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
@@ -7173,21 +7433,27 @@ public final class Model {
       private int type_ = 0;
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public int getTypeValue() {
+      @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
+        
         type_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @return The type.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.valueOf(type_);
@@ -7195,6 +7461,8 @@ public final class Model {
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType value) {
         if (value == null) {
@@ -7207,6 +7475,7 @@ public final class Model {
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -7218,21 +7487,27 @@ public final class Model {
       private int location_ = 0;
       /**
        * <code>.internal.ParameterLocation location = 3;</code>
+       * @return The enum numeric value on the wire for location.
        */
-      public int getLocationValue() {
+      @java.lang.Override public int getLocationValue() {
         return location_;
       }
       /**
        * <code>.internal.ParameterLocation location = 3;</code>
+       * @param value The enum numeric value on the wire for location to set.
+       * @return This builder for chaining.
        */
       public Builder setLocationValue(int value) {
+        
         location_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>.internal.ParameterLocation location = 3;</code>
+       * @return The location.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation getLocation() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation result = restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation.valueOf(location_);
@@ -7240,6 +7515,8 @@ public final class Model {
       }
       /**
        * <code>.internal.ParameterLocation location = 3;</code>
+       * @param value The location to set.
+       * @return This builder for chaining.
        */
       public Builder setLocation(restful.api.metric.analyzer.cli.model.generated.internal.Model.ParameterLocation value) {
         if (value == null) {
@@ -7252,6 +7529,7 @@ public final class Model {
       }
       /**
        * <code>.internal.ParameterLocation location = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLocation() {
         
@@ -7263,12 +7541,16 @@ public final class Model {
       private boolean required_ ;
       /**
        * <code>bool required = 4;</code>
+       * @return The required.
        */
+      @java.lang.Override
       public boolean getRequired() {
         return required_;
       }
       /**
        * <code>bool required = 4;</code>
+       * @param value The required to set.
+       * @return This builder for chaining.
        */
       public Builder setRequired(boolean value) {
         
@@ -7278,6 +7560,7 @@ public final class Model {
       }
       /**
        * <code>bool required = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRequired() {
         
@@ -7344,19 +7627,25 @@ public final class Model {
 
     /**
      * <code>repeated string code = 1;</code>
+     * @return A list containing the code.
      */
     java.util.List<java.lang.String>
         getCodeList();
     /**
      * <code>repeated string code = 1;</code>
+     * @return The count of code.
      */
     int getCodeCount();
     /**
      * <code>repeated string code = 1;</code>
+     * @param index The index of the element to return.
+     * @return The code at the given index.
      */
     java.lang.String getCode(int index);
     /**
      * <code>repeated string code = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the code at the given index.
      */
     com.google.protobuf.ByteString
         getCodeBytes(int index);
@@ -7418,7 +7707,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.Response}
    */
-  public  static final class Response extends
+  public static final class Response extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.Response)
       ResponseOrBuilder {
@@ -7535,6 +7824,7 @@ public final class Model {
     private com.google.protobuf.LazyStringList code_;
     /**
      * <code>repeated string code = 1;</code>
+     * @return A list containing the code.
      */
     public com.google.protobuf.ProtocolStringList
         getCodeList() {
@@ -7542,18 +7832,23 @@ public final class Model {
     }
     /**
      * <code>repeated string code = 1;</code>
+     * @return The count of code.
      */
     public int getCodeCount() {
       return code_.size();
     }
     /**
      * <code>repeated string code = 1;</code>
+     * @param index The index of the element to return.
+     * @return The code at the given index.
      */
     public java.lang.String getCode(int index) {
       return code_.get(index);
     }
     /**
      * <code>repeated string code = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the code at the given index.
      */
     public com.google.protobuf.ByteString
         getCodeBytes(int index) {
@@ -7594,6 +7889,7 @@ public final class Model {
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
 
+    @java.lang.Override
     public boolean containsContentMediaTypes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -7602,6 +7898,7 @@ public final class Model {
     /**
      * Use {@link #getContentMediaTypesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypes() {
       return getContentMediaTypesMap();
@@ -7613,6 +7910,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypesMap() {
       return internalGetContentMediaTypes().getMap();
@@ -7624,6 +7922,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrDefault(
         java.lang.String key,
@@ -7640,6 +7939,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrThrow(
         java.lang.String key) {
@@ -7877,7 +8177,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.Response.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.Response.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.Response.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.Response.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8031,6 +8331,7 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @return A list containing the code.
        */
       public com.google.protobuf.ProtocolStringList
           getCodeList() {
@@ -8038,18 +8339,23 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @return The count of code.
        */
       public int getCodeCount() {
         return code_.size();
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @param index The index of the element to return.
+       * @return The code at the given index.
        */
       public java.lang.String getCode(int index) {
         return code_.get(index);
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the code at the given index.
        */
       public com.google.protobuf.ByteString
           getCodeBytes(int index) {
@@ -8057,6 +8363,9 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The code to set.
+       * @return This builder for chaining.
        */
       public Builder setCode(
           int index, java.lang.String value) {
@@ -8070,6 +8379,8 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @param value The code to add.
+       * @return This builder for chaining.
        */
       public Builder addCode(
           java.lang.String value) {
@@ -8083,6 +8394,8 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @param values The code to add.
+       * @return This builder for chaining.
        */
       public Builder addAllCode(
           java.lang.Iterable<java.lang.String> values) {
@@ -8094,6 +8407,7 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearCode() {
         code_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8103,6 +8417,8 @@ public final class Model {
       }
       /**
        * <code>repeated string code = 1;</code>
+       * @param value The bytes of the code to add.
+       * @return This builder for chaining.
        */
       public Builder addCodeBytes(
           com.google.protobuf.ByteString value) {
@@ -8150,6 +8466,7 @@ public final class Model {
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
 
+      @java.lang.Override
       public boolean containsContentMediaTypes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -8158,6 +8475,7 @@ public final class Model {
       /**
        * Use {@link #getContentMediaTypesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypes() {
         return getContentMediaTypesMap();
@@ -8169,6 +8487,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypesMap() {
         return internalGetContentMediaTypes().getMap();
@@ -8180,6 +8499,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrDefault(
           java.lang.String key,
@@ -8196,6 +8516,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrThrow(
           java.lang.String key) {
@@ -8329,6 +8650,7 @@ public final class Model {
      * </pre>
      *
      * <code>string mediaType = 1;</code>
+     * @return The mediaType.
      */
     java.lang.String getMediaType();
     /**
@@ -8337,6 +8659,7 @@ public final class Model {
      * </pre>
      *
      * <code>string mediaType = 1;</code>
+     * @return The bytes for mediaType.
      */
     com.google.protobuf.ByteString
         getMediaTypeBytes();
@@ -8347,6 +8670,7 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataModel dataModel = 2;</code>
+     * @return Whether the dataModel field is set.
      */
     boolean hasDataModel();
     /**
@@ -8355,6 +8679,7 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataModel dataModel = 2;</code>
+     * @return The dataModel.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModel();
     /**
@@ -8369,7 +8694,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.ContentMediaType}
    */
-  public  static final class ContentMediaType extends
+  public static final class ContentMediaType extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.ContentMediaType)
       ContentMediaTypeOrBuilder {
@@ -8471,7 +8796,9 @@ public final class Model {
      * </pre>
      *
      * <code>string mediaType = 1;</code>
+     * @return The mediaType.
      */
+    @java.lang.Override
     public java.lang.String getMediaType() {
       java.lang.Object ref = mediaType_;
       if (ref instanceof java.lang.String) {
@@ -8490,7 +8817,9 @@ public final class Model {
      * </pre>
      *
      * <code>string mediaType = 1;</code>
+     * @return The bytes for mediaType.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getMediaTypeBytes() {
       java.lang.Object ref = mediaType_;
@@ -8513,7 +8842,9 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataModel dataModel = 2;</code>
+     * @return Whether the dataModel field is set.
      */
+    @java.lang.Override
     public boolean hasDataModel() {
       return dataModel_ != null;
     }
@@ -8523,7 +8854,9 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataModel dataModel = 2;</code>
+     * @return The dataModel.
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModel() {
       return dataModel_ == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel.getDefaultInstance() : dataModel_;
     }
@@ -8534,6 +8867,7 @@ public final class Model {
      *
      * <code>.internal.DataModel dataModel = 2;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelOrBuilder getDataModelOrBuilder() {
       return getDataModel();
     }
@@ -8552,7 +8886,7 @@ public final class Model {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getMediaTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediaType_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mediaType_);
       }
       if (dataModel_ != null) {
@@ -8567,7 +8901,7 @@ public final class Model {
       if (size != -1) return size;
 
       size = 0;
-      if (!getMediaTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mediaType_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mediaType_);
       }
       if (dataModel_ != null) {
@@ -8728,7 +9062,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.ContentMediaType.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8877,6 +9211,7 @@ public final class Model {
        * </pre>
        *
        * <code>string mediaType = 1;</code>
+       * @return The mediaType.
        */
       public java.lang.String getMediaType() {
         java.lang.Object ref = mediaType_;
@@ -8896,6 +9231,7 @@ public final class Model {
        * </pre>
        *
        * <code>string mediaType = 1;</code>
+       * @return The bytes for mediaType.
        */
       public com.google.protobuf.ByteString
           getMediaTypeBytes() {
@@ -8916,6 +9252,8 @@ public final class Model {
        * </pre>
        *
        * <code>string mediaType = 1;</code>
+       * @param value The mediaType to set.
+       * @return This builder for chaining.
        */
       public Builder setMediaType(
           java.lang.String value) {
@@ -8933,6 +9271,7 @@ public final class Model {
        * </pre>
        *
        * <code>string mediaType = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMediaType() {
         
@@ -8946,6 +9285,8 @@ public final class Model {
        * </pre>
        *
        * <code>string mediaType = 1;</code>
+       * @param value The bytes for mediaType to set.
+       * @return This builder for chaining.
        */
       public Builder setMediaTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -8968,6 +9309,7 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataModel dataModel = 2;</code>
+       * @return Whether the dataModel field is set.
        */
       public boolean hasDataModel() {
         return dataModelBuilder_ != null || dataModel_ != null;
@@ -8978,6 +9320,7 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataModel dataModel = 2;</code>
+       * @return The dataModel.
        */
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModel() {
         if (dataModelBuilder_ == null) {
@@ -9174,6 +9517,7 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataType dataType = 1;</code>
+     * @return The enum numeric value on the wire for dataType.
      */
     int getDataTypeValue();
     /**
@@ -9182,6 +9526,7 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataType dataType = 1;</code>
+     * @return The dataType.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getDataType();
 
@@ -9241,10 +9586,12 @@ public final class Model {
 
     /**
      * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+     * @return The enum numeric value on the wire for dataModelRelationShip.
      */
     int getDataModelRelationShipValue();
     /**
      * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+     * @return The dataModelRelationShip.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip getDataModelRelationShip();
 
@@ -9305,7 +9652,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.DataModel}
    */
-  public  static final class DataModel extends
+  public static final class DataModel extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.DataModel)
       DataModelOrBuilder {
@@ -9442,8 +9789,9 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataType dataType = 1;</code>
+     * @return The enum numeric value on the wire for dataType.
      */
-    public int getDataTypeValue() {
+    @java.lang.Override public int getDataTypeValue() {
       return dataType_;
     }
     /**
@@ -9452,8 +9800,9 @@ public final class Model {
      * </pre>
      *
      * <code>.internal.DataType dataType = 1;</code>
+     * @return The dataType.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getDataType() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getDataType() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.valueOf(dataType_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.UNRECOGNIZED : result;
@@ -9493,6 +9842,7 @@ public final class Model {
      * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
      */
 
+    @java.lang.Override
     public boolean containsProperties(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9501,6 +9851,7 @@ public final class Model {
     /**
      * Use {@link #getPropertiesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getProperties() {
       return getPropertiesMap();
@@ -9512,6 +9863,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getPropertiesMap() {
       return internalGetProperties().getMap();
@@ -9523,6 +9875,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getPropertiesOrDefault(
         java.lang.String key,
@@ -9539,6 +9892,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getPropertiesOrThrow(
         java.lang.String key) {
@@ -9555,14 +9909,16 @@ public final class Model {
     private int dataModelRelationShip_;
     /**
      * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+     * @return The enum numeric value on the wire for dataModelRelationShip.
      */
-    public int getDataModelRelationShipValue() {
+    @java.lang.Override public int getDataModelRelationShipValue() {
       return dataModelRelationShip_;
     }
     /**
      * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+     * @return The dataModelRelationShip.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip getDataModelRelationShip() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip getDataModelRelationShip() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip.valueOf(dataModelRelationShip_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip.UNRECOGNIZED : result;
@@ -9602,6 +9958,7 @@ public final class Model {
      * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
      */
 
+    @java.lang.Override
     public boolean containsDataModels(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9610,6 +9967,7 @@ public final class Model {
     /**
      * Use {@link #getDataModelsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel> getDataModels() {
       return getDataModelsMap();
@@ -9621,6 +9979,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel> getDataModelsMap() {
       return internalGetDataModels().getMap();
@@ -9632,6 +9991,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModelsOrDefault(
         java.lang.String key,
@@ -9648,6 +10008,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModelsOrThrow(
         java.lang.String key) {
@@ -9914,7 +10275,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.DataModel.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10066,8 +10427,9 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataType dataType = 1;</code>
+       * @return The enum numeric value on the wire for dataType.
        */
-      public int getDataTypeValue() {
+      @java.lang.Override public int getDataTypeValue() {
         return dataType_;
       }
       /**
@@ -10076,8 +10438,11 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataType dataType = 1;</code>
+       * @param value The enum numeric value on the wire for dataType to set.
+       * @return This builder for chaining.
        */
       public Builder setDataTypeValue(int value) {
+        
         dataType_ = value;
         onChanged();
         return this;
@@ -10088,7 +10453,9 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataType dataType = 1;</code>
+       * @return The dataType.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getDataType() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.valueOf(dataType_);
@@ -10100,6 +10467,8 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataType dataType = 1;</code>
+       * @param value The dataType to set.
+       * @return This builder for chaining.
        */
       public Builder setDataType(restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType value) {
         if (value == null) {
@@ -10116,6 +10485,7 @@ public final class Model {
        * </pre>
        *
        * <code>.internal.DataType dataType = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDataType() {
         
@@ -10158,6 +10528,7 @@ public final class Model {
        * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
        */
 
+      @java.lang.Override
       public boolean containsProperties(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -10166,6 +10537,7 @@ public final class Model {
       /**
        * Use {@link #getPropertiesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getProperties() {
         return getPropertiesMap();
@@ -10177,6 +10549,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getPropertiesMap() {
         return internalGetProperties().getMap();
@@ -10188,6 +10561,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getPropertiesOrDefault(
           java.lang.String key,
@@ -10204,6 +10578,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Property&gt; properties = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getPropertiesOrThrow(
           java.lang.String key) {
@@ -10278,21 +10653,27 @@ public final class Model {
       private int dataModelRelationShip_ = 0;
       /**
        * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+       * @return The enum numeric value on the wire for dataModelRelationShip.
        */
-      public int getDataModelRelationShipValue() {
+      @java.lang.Override public int getDataModelRelationShipValue() {
         return dataModelRelationShip_;
       }
       /**
        * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+       * @param value The enum numeric value on the wire for dataModelRelationShip to set.
+       * @return This builder for chaining.
        */
       public Builder setDataModelRelationShipValue(int value) {
+        
         dataModelRelationShip_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+       * @return The dataModelRelationShip.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip getDataModelRelationShip() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip.valueOf(dataModelRelationShip_);
@@ -10300,6 +10681,8 @@ public final class Model {
       }
       /**
        * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+       * @param value The dataModelRelationShip to set.
+       * @return This builder for chaining.
        */
       public Builder setDataModelRelationShip(restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelRelationShip value) {
         if (value == null) {
@@ -10312,6 +10695,7 @@ public final class Model {
       }
       /**
        * <code>.internal.DataModelRelationShip dataModelRelationShip = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDataModelRelationShip() {
         
@@ -10354,6 +10738,7 @@ public final class Model {
        * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
        */
 
+      @java.lang.Override
       public boolean containsDataModels(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -10362,6 +10747,7 @@ public final class Model {
       /**
        * Use {@link #getDataModelsMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel> getDataModels() {
         return getDataModelsMap();
@@ -10373,6 +10759,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel> getDataModelsMap() {
         return internalGetDataModels().getMap();
@@ -10384,6 +10771,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModelsOrDefault(
           java.lang.String key,
@@ -10400,6 +10788,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.DataModel&gt; dataModels = 4;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModelsOrThrow(
           java.lang.String key) {
@@ -10529,45 +10918,54 @@ public final class Model {
 
     /**
      * <code>string key = 1;</code>
+     * @return The key.
      */
     java.lang.String getKey();
     /**
      * <code>string key = 1;</code>
+     * @return The bytes for key.
      */
     com.google.protobuf.ByteString
         getKeyBytes();
 
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The type.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType();
 
     /**
      * <code>string format = 3;</code>
+     * @return The format.
      */
     java.lang.String getFormat();
     /**
      * <code>string format = 3;</code>
+     * @return The bytes for format.
      */
     com.google.protobuf.ByteString
         getFormatBytes();
 
     /**
      * <code>int32 minOccurs = 4;</code>
+     * @return The minOccurs.
      */
     int getMinOccurs();
 
     /**
      * <code>int32 maxOccurs = 5;</code>
+     * @return The maxOccurs.
      */
     int getMaxOccurs();
 
     /**
      * <code>bool nillable = 6;</code>
+     * @return The nillable.
      */
     boolean getNillable();
 
@@ -10627,10 +11025,12 @@ public final class Model {
 
     /**
      * <code>.internal.DataModel dataModel = 8;</code>
+     * @return Whether the dataModel field is set.
      */
     boolean hasDataModel();
     /**
      * <code>.internal.DataModel dataModel = 8;</code>
+     * @return The dataModel.
      */
     restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModel();
     /**
@@ -10641,7 +11041,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.Property}
    */
-  public  static final class Property extends
+  public static final class Property extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.Property)
       PropertyOrBuilder {
@@ -10794,7 +11194,9 @@ public final class Model {
     private volatile java.lang.Object key_;
     /**
      * <code>string key = 1;</code>
+     * @return The key.
      */
+    @java.lang.Override
     public java.lang.String getKey() {
       java.lang.Object ref = key_;
       if (ref instanceof java.lang.String) {
@@ -10809,7 +11211,9 @@ public final class Model {
     }
     /**
      * <code>string key = 1;</code>
+     * @return The bytes for key.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKeyBytes() {
       java.lang.Object ref = key_;
@@ -10828,14 +11232,16 @@ public final class Model {
     private int type_;
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.internal.DataType type = 2;</code>
+     * @return The type.
      */
-    public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType() {
+    @java.lang.Override public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType() {
       @SuppressWarnings("deprecation")
       restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.valueOf(type_);
       return result == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.UNRECOGNIZED : result;
@@ -10845,7 +11251,9 @@ public final class Model {
     private volatile java.lang.Object format_;
     /**
      * <code>string format = 3;</code>
+     * @return The format.
      */
+    @java.lang.Override
     public java.lang.String getFormat() {
       java.lang.Object ref = format_;
       if (ref instanceof java.lang.String) {
@@ -10860,7 +11268,9 @@ public final class Model {
     }
     /**
      * <code>string format = 3;</code>
+     * @return The bytes for format.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFormatBytes() {
       java.lang.Object ref = format_;
@@ -10879,7 +11289,9 @@ public final class Model {
     private int minOccurs_;
     /**
      * <code>int32 minOccurs = 4;</code>
+     * @return The minOccurs.
      */
+    @java.lang.Override
     public int getMinOccurs() {
       return minOccurs_;
     }
@@ -10888,7 +11300,9 @@ public final class Model {
     private int maxOccurs_;
     /**
      * <code>int32 maxOccurs = 5;</code>
+     * @return The maxOccurs.
      */
+    @java.lang.Override
     public int getMaxOccurs() {
       return maxOccurs_;
     }
@@ -10897,7 +11311,9 @@ public final class Model {
     private boolean nillable_;
     /**
      * <code>bool nillable = 6;</code>
+     * @return The nillable.
      */
+    @java.lang.Override
     public boolean getNillable() {
       return nillable_;
     }
@@ -10936,6 +11352,7 @@ public final class Model {
      * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
      */
 
+    @java.lang.Override
     public boolean containsSubProperties(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -10944,6 +11361,7 @@ public final class Model {
     /**
      * Use {@link #getSubPropertiesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getSubProperties() {
       return getSubPropertiesMap();
@@ -10955,6 +11373,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getSubPropertiesMap() {
       return internalGetSubProperties().getMap();
@@ -10966,6 +11385,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getSubPropertiesOrDefault(
         java.lang.String key,
@@ -10982,6 +11402,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getSubPropertiesOrThrow(
         java.lang.String key) {
@@ -10998,19 +11419,24 @@ public final class Model {
     private restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel dataModel_;
     /**
      * <code>.internal.DataModel dataModel = 8;</code>
+     * @return Whether the dataModel field is set.
      */
+    @java.lang.Override
     public boolean hasDataModel() {
       return dataModel_ != null;
     }
     /**
      * <code>.internal.DataModel dataModel = 8;</code>
+     * @return The dataModel.
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModel() {
       return dataModel_ == null ? restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel.getDefaultInstance() : dataModel_;
     }
     /**
      * <code>.internal.DataModel dataModel = 8;</code>
      */
+    @java.lang.Override
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelOrBuilder getDataModelOrBuilder() {
       return getDataModel();
     }
@@ -11029,13 +11455,13 @@ public final class Model {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getKeyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       if (type_ != restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.STRING.getNumber()) {
         output.writeEnum(2, type_);
       }
-      if (!getFormatBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, format_);
       }
       if (minOccurs_ != 0) {
@@ -11065,14 +11491,14 @@ public final class Model {
       if (size != -1) return size;
 
       size = 0;
-      if (!getKeyBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       if (type_ != restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.STRING.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
-      if (!getFormatBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(format_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, format_);
       }
       if (minOccurs_ != 0) {
@@ -11303,7 +11729,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.Property.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.Property.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.Property.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11486,6 +11912,7 @@ public final class Model {
       private java.lang.Object key_ = "";
       /**
        * <code>string key = 1;</code>
+       * @return The key.
        */
       public java.lang.String getKey() {
         java.lang.Object ref = key_;
@@ -11501,6 +11928,7 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @return The bytes for key.
        */
       public com.google.protobuf.ByteString
           getKeyBytes() {
@@ -11517,6 +11945,8 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @param value The key to set.
+       * @return This builder for chaining.
        */
       public Builder setKey(
           java.lang.String value) {
@@ -11530,6 +11960,7 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKey() {
         
@@ -11539,6 +11970,8 @@ public final class Model {
       }
       /**
        * <code>string key = 1;</code>
+       * @param value The bytes for key to set.
+       * @return This builder for chaining.
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
@@ -11555,21 +11988,27 @@ public final class Model {
       private int type_ = 0;
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public int getTypeValue() {
+      @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
+        
         type_ = value;
         onChanged();
         return this;
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @return The type.
        */
+      @java.lang.Override
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType getType() {
         @SuppressWarnings("deprecation")
         restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType result = restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType.valueOf(type_);
@@ -11577,6 +12016,8 @@ public final class Model {
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(restful.api.metric.analyzer.cli.model.generated.internal.Model.DataType value) {
         if (value == null) {
@@ -11589,6 +12030,7 @@ public final class Model {
       }
       /**
        * <code>.internal.DataType type = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -11600,6 +12042,7 @@ public final class Model {
       private java.lang.Object format_ = "";
       /**
        * <code>string format = 3;</code>
+       * @return The format.
        */
       public java.lang.String getFormat() {
         java.lang.Object ref = format_;
@@ -11615,6 +12058,7 @@ public final class Model {
       }
       /**
        * <code>string format = 3;</code>
+       * @return The bytes for format.
        */
       public com.google.protobuf.ByteString
           getFormatBytes() {
@@ -11631,6 +12075,8 @@ public final class Model {
       }
       /**
        * <code>string format = 3;</code>
+       * @param value The format to set.
+       * @return This builder for chaining.
        */
       public Builder setFormat(
           java.lang.String value) {
@@ -11644,6 +12090,7 @@ public final class Model {
       }
       /**
        * <code>string format = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFormat() {
         
@@ -11653,6 +12100,8 @@ public final class Model {
       }
       /**
        * <code>string format = 3;</code>
+       * @param value The bytes for format to set.
+       * @return This builder for chaining.
        */
       public Builder setFormatBytes(
           com.google.protobuf.ByteString value) {
@@ -11669,12 +12118,16 @@ public final class Model {
       private int minOccurs_ ;
       /**
        * <code>int32 minOccurs = 4;</code>
+       * @return The minOccurs.
        */
+      @java.lang.Override
       public int getMinOccurs() {
         return minOccurs_;
       }
       /**
        * <code>int32 minOccurs = 4;</code>
+       * @param value The minOccurs to set.
+       * @return This builder for chaining.
        */
       public Builder setMinOccurs(int value) {
         
@@ -11684,6 +12137,7 @@ public final class Model {
       }
       /**
        * <code>int32 minOccurs = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMinOccurs() {
         
@@ -11695,12 +12149,16 @@ public final class Model {
       private int maxOccurs_ ;
       /**
        * <code>int32 maxOccurs = 5;</code>
+       * @return The maxOccurs.
        */
+      @java.lang.Override
       public int getMaxOccurs() {
         return maxOccurs_;
       }
       /**
        * <code>int32 maxOccurs = 5;</code>
+       * @param value The maxOccurs to set.
+       * @return This builder for chaining.
        */
       public Builder setMaxOccurs(int value) {
         
@@ -11710,6 +12168,7 @@ public final class Model {
       }
       /**
        * <code>int32 maxOccurs = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMaxOccurs() {
         
@@ -11721,12 +12180,16 @@ public final class Model {
       private boolean nillable_ ;
       /**
        * <code>bool nillable = 6;</code>
+       * @return The nillable.
        */
+      @java.lang.Override
       public boolean getNillable() {
         return nillable_;
       }
       /**
        * <code>bool nillable = 6;</code>
+       * @param value The nillable to set.
+       * @return This builder for chaining.
        */
       public Builder setNillable(boolean value) {
         
@@ -11736,6 +12199,7 @@ public final class Model {
       }
       /**
        * <code>bool nillable = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNillable() {
         
@@ -11778,6 +12242,7 @@ public final class Model {
        * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
        */
 
+      @java.lang.Override
       public boolean containsSubProperties(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -11786,6 +12251,7 @@ public final class Model {
       /**
        * Use {@link #getSubPropertiesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getSubProperties() {
         return getSubPropertiesMap();
@@ -11797,6 +12263,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.Property> getSubPropertiesMap() {
         return internalGetSubProperties().getMap();
@@ -11808,6 +12275,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getSubPropertiesOrDefault(
           java.lang.String key,
@@ -11824,6 +12292,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.Property&gt; subProperties = 7;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.Property getSubPropertiesOrThrow(
           java.lang.String key) {
@@ -11900,12 +12369,14 @@ public final class Model {
           restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel.Builder, restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModelOrBuilder> dataModelBuilder_;
       /**
        * <code>.internal.DataModel dataModel = 8;</code>
+       * @return Whether the dataModel field is set.
        */
       public boolean hasDataModel() {
         return dataModelBuilder_ != null || dataModel_ != null;
       }
       /**
        * <code>.internal.DataModel dataModel = 8;</code>
+       * @return The dataModel.
        */
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.DataModel getDataModel() {
         if (dataModelBuilder_ == null) {
@@ -12125,7 +12596,7 @@ public final class Model {
   /**
    * Protobuf type {@code internal.RequestBody}
    */
-  public  static final class RequestBody extends
+  public static final class RequestBody extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:internal.RequestBody)
       RequestBodyOrBuilder {
@@ -12259,6 +12730,7 @@ public final class Model {
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
 
+    @java.lang.Override
     public boolean containsContentMediaTypes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -12267,6 +12739,7 @@ public final class Model {
     /**
      * Use {@link #getContentMediaTypesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypes() {
       return getContentMediaTypesMap();
@@ -12278,6 +12751,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypesMap() {
       return internalGetContentMediaTypes().getMap();
@@ -12289,6 +12763,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrDefault(
         java.lang.String key,
@@ -12305,6 +12780,7 @@ public final class Model {
      *
      * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
      */
+    @java.lang.Override
 
     public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrThrow(
         java.lang.String key) {
@@ -12525,7 +13001,7 @@ public final class Model {
                 restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBody.class, restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBody.Builder.class);
       }
 
-      // Construct using openapi.evaluation.cli.model.generated.internal.Model.RequestBody.newBuilder()
+      // Construct using restful.api.metric.analyzer.cli.model.generated.internal.Model.RequestBody.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12687,6 +13163,7 @@ public final class Model {
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
 
+      @java.lang.Override
       public boolean containsContentMediaTypes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -12695,6 +13172,7 @@ public final class Model {
       /**
        * Use {@link #getContentMediaTypesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypes() {
         return getContentMediaTypesMap();
@@ -12706,6 +13184,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType> getContentMediaTypesMap() {
         return internalGetContentMediaTypes().getMap();
@@ -12717,6 +13196,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrDefault(
           java.lang.String key,
@@ -12733,6 +13213,7 @@ public final class Model {
        *
        * <code>map&lt;string, .internal.ContentMediaType&gt; contentMediaTypes = 2;</code>
        */
+      @java.lang.Override
 
       public restful.api.metric.analyzer.cli.model.generated.internal.Model.ContentMediaType getContentMediaTypesOrThrow(
           java.lang.String key) {
@@ -13024,8 +13505,9 @@ public final class Model {
       "R\020\001\022\010\n\004PATH\020\002\022\t\n\005QUERY\020\003\022\014\n\010TEMPLATE\020\004\022\n" +
       "\n\006MATRIX\020\005\022\t\n\005PLAIN\020\006*E\n\025DataModelRelati" +
       "onShip\022\007\n\003All\020\000\022\007\n\003ANY\020\001\022\013\n\007ONLYONE\020\002\022\r\n" +
-      "\tUNDEFINED\020\003B8\n/openapi.evaluation.cli.m" +
-      "odel.generated.internalB\005Modelb\006proto3"
+      "\tUNDEFINED\020\003BA\n8restful.api.metric.analy" +
+      "zer.cli.model.generated.internalB\005Modelb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

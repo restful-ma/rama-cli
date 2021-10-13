@@ -13,7 +13,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import com.google.protobuf.MessageOrBuilder;
-import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
+import org.apache.xerces.dom.ElementNSImpl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

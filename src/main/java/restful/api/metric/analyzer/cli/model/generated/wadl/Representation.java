@@ -21,33 +21,6 @@ import javax.xml.namespace.QName;
 import org.w3c.dom.Element;
 
 
-/**
- * <p>Java-Klasse für anonymous complex type.
- * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{http://wadl.dev.java.net/2009/02}doc" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element ref="{http://wadl.dev.java.net/2009/02}param" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;any processContents='lax' namespace='##other' maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="element" type="{http://www.w3.org/2001/XMLSchema}QName" />
- *       &lt;attribute name="mediaType" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="href" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       &lt;attribute name="profile" type="{http://wadl.dev.java.net/2009/02}uriList" />
- *       &lt;anyAttribute processContents='lax' namespace='##other'/>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "doc",

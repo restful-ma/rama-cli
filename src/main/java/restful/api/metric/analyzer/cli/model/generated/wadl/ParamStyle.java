@@ -6,24 +6,6 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java-Klasse für ParamStyle.
- * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
- * <p>
- * <pre>
- * &lt;simpleType name="ParamStyle">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="plain"/>
- *     &lt;enumeration value="query"/>
- *     &lt;enumeration value="matrix"/>
- *     &lt;enumeration value="header"/>
- *     &lt;enumeration value="template"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
- * 
- */
 @XmlType(name = "ParamStyle", namespace = "http://wadl.dev.java.net/2009/02")
 @XmlEnum
 public enum ParamStyle {

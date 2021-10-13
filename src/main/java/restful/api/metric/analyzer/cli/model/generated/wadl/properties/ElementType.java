@@ -9,27 +9,6 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.namespace.QName;
 
 
-/**
- * <p>Java-Klasse für elementType complex type.
- * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
- * 
- * <pre>
- * &lt;complexType name="elementType">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}QName" />
- *       &lt;attribute name="minOccurs" type="{http://www.w3.org/2001/XMLSchema}int" default="0" />
- *       &lt;attribute name="maxOccurs" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="nillable" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "elementType", namespace = "http://www.w3.org/2001/XMLSchema", propOrder = {
     "value"

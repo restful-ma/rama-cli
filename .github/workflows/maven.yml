@@ -9,7 +9,7 @@ jobs:
     - name: Setup Java
       uses: actions/setup-java@v1
       with:
-        java-version: 1.8
+        java-version: 11
     - name: Checkout repo
       uses: actions/checkout@v1
     - name: Run tests
