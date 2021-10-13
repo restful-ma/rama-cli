@@ -1,22 +1,20 @@
 # Distinct Message Ratio (DMR)
-The `Distinct Message Ratio` metric (DMR) represents a measure for the complexity/cohesion of data types in an interface. This metric is significantly modified from the original version [1]. It is the ratio between distinct messages and all messages that are inside an interface.
+The `Distinct Message Ratio` metric (DMR) represents a measure for the complexity/cohesion of data types in an interface. This metric is significantly modified from the original version [1]. It is the ratio between distinct messages and all messages that are inside an interface. DMR takes values between `0` and `1`, where lower is considered better.
 Messages are either: 
- * An `Input` message is the combination of path parameters, query parameters and the request body.
-The input data can be seen as a single data object which has path parameters, query parameters
-and request body as sub-properties.
-* An `Output` message is a single response of an operation.
+ * an `input` message: the combination of path parameters, query parameters, and the request body. The `input` data can be seen as a single data object which has the different parameters as sub-properties. Usually, each operation has exactly one `input` message.
+* an `output` message: the different responses of an operation, e.g. the `200 OK` response and error schemes. Usually, an operation has exactly one valid response plus error messages as `output`.
 
-In the example below are 3 messages from GET /pets
+In the example below are 3 messages from `GET /pets`
 * {limit}
-* {$ ref: "#/ components/schemas/Pets"}
-* {$ ref:"#/ components/schemas/ Error"}
-
-and 3 messages from GET /pets/{age} 
-* {limit,age}
 * {$ ref: "#/components/schemas/Pets"}
-* {$ ref:"#/ components/schemas/ Error"}
+* {$ ref: "#/components/schemas/Error"}
 
-To calculate DMR, we divide the count of distinct messages that occur only once in the whole API (2) {limit} and {limit, age} by the number of all messages (6)
+and 3 messages from `GET /pets/{age}`
+* {limit, age}
+* {$ ref: "#/components/schemas/Pets"}
+* {$ ref: "#/components/schemas/Error"}
+
+To calculate DMR, we divide the count of distinct messages that occur only once in the whole API ({limit} and {limit, age}, i.e. `2`) by the number of all messages (`6`):
 
 `DMR = 2 / 6 = 1 / 3`
 
