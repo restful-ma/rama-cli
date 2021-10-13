@@ -3,7 +3,7 @@
     <name>RESTful Api Metric Analyzer CLI</name>
     <groupId>restful-ma</groupId>
     <artifactId>rama-cli</artifactId>
-    <version>0.1.3</version>
+    <version>0.1.4</version>
     <packaging>jar</packaging>
     <organization>
         <name>University of Stuttgart / ISTE / ESE</name>

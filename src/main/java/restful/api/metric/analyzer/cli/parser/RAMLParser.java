@@ -454,7 +454,7 @@ public class RAMLParser extends Parser {
 		String dataModelName = contentMediaType.type();
 		if (!dataModelName.equals("any")) {
 			if (dataModelName.contains("|")) {
-				dataModelName = dataModelName.split(" | ")[0];
+				dataModelName = dataModelName.split(" \\| ")[0];
 			}
 			try {
 				if (!dataModelName.contains("[")) {
